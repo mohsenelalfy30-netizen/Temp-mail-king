@@ -35,9 +35,9 @@ export const LANGUAGES: Language[] = [
     { code: 'pa', name: 'Punjabi', native: 'ਪੰਜਾਬੀ', flag: 'in', dir: 'ltr' },
     { code: 'ta', name: 'Tamil', native: 'தமிழ்', flag: 'in', dir: 'ltr' },
     { code: 'te', name: 'Telugu', native: 'తెలుగు', flag: 'in', dir: 'ltr' },
-    { code: 'mr', name: 'Marathi', native: 'मराठी', flag: 'in', dir: 'ltr' },
+    { code: 'mr', name: 'Marathi', native: 'मراठी', flag: 'in', dir: 'ltr' },
     { code: 'gu', name: 'Gujarati', native: 'ગુજરાતી', flag: 'in', dir: 'ltr' },
-    { code: 'kn', name: 'Kannada', native: 'ಕನ್ನಡ', flag: 'in', dir: 'ltr' },
+    { code: 'kn', name: 'Kannada', native: 'ਕನ್ನಡ', flag: 'in', dir: 'ltr' },
     { code: 'ml', name: 'Malayalam', native: 'മലയാളം', flag: 'in', dir: 'ltr' },
     { code: 'my', name: 'Burmese', native: 'မြန်မာ', flag: 'mm', dir: 'ltr' },
     { code: 'am', name: 'Amharic', native: 'አማርኛ', flag: 'et', dir: 'ltr' },
@@ -87,9 +87,12 @@ export class I18nManager {
         const langObj = LANGUAGES.find(l => l.code === langCode) || LANGUAGES[0];
         this.currentLang = langObj.code;
         
+        // تعديل المسارات لاستخدام fetch بدلاً من import
         let enTranslations = {};
         try {
-            enTranslations = (await import(`./locales/en/translation.json`)).default;
+            // بما أن المجلد داخل src/locales، نستخدم المسار المباشر
+            const responseEn = await fetch(`/src/locales/translation(en).json`);
+            enTranslations = await responseEn.json();
         } catch (error) {
             console.warn('Failed to load English fallback translations', error);
         }
@@ -97,13 +100,14 @@ export class I18nManager {
         let targetTranslations = {};
         if (this.currentLang !== 'en') {
             try {
-                targetTranslations = (await import(`./locales/${this.currentLang}/translation.json`)).default;
+                const responseTarget = await fetch(`/src/locales/translation(${this.currentLang}).json`);
+                targetTranslations = await responseTarget.json();
             } catch (error) {
                 console.warn(`Failed to load translations for ${this.currentLang}, falling back to English`, error);
             }
         }
 
-        // Merge translations, falling back to English for missing keys
+        // Merge translations
         this.translations = { ...enTranslations, ...targetTranslations };
 
         this.applyToDOM(langObj);
@@ -113,7 +117,6 @@ export class I18nManager {
             console.warn("localStorage access denied", e);
         }
         
-        // Notify listeners
         this.onLanguageChangeCallbacks.forEach(cb => cb(this.currentLang));
     }
 
@@ -165,3 +168,4 @@ export class I18nManager {
 }
 
 export const i18n = new I18nManager();
+
