@@ -401,7 +401,7 @@ if (createBtn) {
         if (prefixInput) prefixInput.value = '';
         if (passwordInput) passwordInput.value = '';
         
-        renderLibrary();
+        location.reload();
         showEmail(email);
     });
 }
