@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { i18n } from './i18n.ts';
+import { i18n } from './i18n.';
 import { Inbox, ExternalLink, Trash2, ChevronRight } from 'lucide-react';
 
 interface SavedEmail {
