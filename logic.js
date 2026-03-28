@@ -61,6 +61,7 @@ try {
 // --- Global 24h Cleanup ---
 function renderLibrary() {
     window.dispatchEvent(new CustomEvent('syncLibrary', { detail: savedEmails }));
+    if (window.renderLibraryUI) window.renderLibraryUI();
 }
 
 function cleanupOldAccounts() {
@@ -400,8 +401,6 @@ if (createBtn) {
         
         if (prefixInput) prefixInput.value = '';
         if (passwordInput) passwordInput.value = '';
-        
-        location.reload();
         showEmail(email);
     });
 }
