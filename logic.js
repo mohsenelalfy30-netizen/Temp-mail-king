@@ -60,11 +60,9 @@ try {
 
 // --- Global 24h Cleanup ---
 function renderLibrary() {
-    window.dispatchEvent(new CustomEvent('syncLibrary', { 
-        detail: JSON.parse(localStorage.getItem('tempMailLibrary') || '[]') 
-    }));
+    const data = JSON.parse(localStorage.getItem('tempMailLibrary') || '[]');
+    window.dispatchEvent(new CustomEvent('syncLibrary', { detail: data }));
 }
-
 
 
 function cleanupOldAccounts() {
@@ -400,7 +398,7 @@ if (createBtn) {
         }
         
         // Sync with React
-        window.dispatchEvent(new CustomEvent('syncLibrary', { detail: savedEmails }));
+        renderLibrary();
         
         if (prefixInput) prefixInput.value = '';
         if (passwordInput) passwordInput.value = '';
