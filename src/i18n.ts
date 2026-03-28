@@ -81,7 +81,6 @@ export class I18nManager {
                 this.currentLang = 'en';
             }
         }
-        // استدعاء التحميل الفعلي بعد الكشف عن اللغة
         this.loadLanguage(this.currentLang);
     }
 
@@ -91,7 +90,6 @@ export class I18nManager {
         
         let enTranslations = {};
         try {
-            // استخدام fetch بدلاً من import للوصول للملف في src/locales
             const responseEn = await fetch(`/src/locales/translation(en).json`);
             enTranslations = await responseEn.json();
         } catch (error) {
@@ -101,7 +99,6 @@ export class I18nManager {
         let targetTranslations = {};
         if (this.currentLang !== 'en') {
             try {
-                // استخدام fetch لجلب لغة الهدف
                 const responseTarget = await fetch(`/src/locales/translation(${this.currentLang}).json`);
                 targetTranslations = await responseTarget.json();
             } catch (error) {
