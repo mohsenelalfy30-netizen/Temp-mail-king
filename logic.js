@@ -60,9 +60,12 @@ try {
 
 // --- Global 24h Cleanup ---
 function renderLibrary() {
-    window.dispatchEvent(new CustomEvent('syncLibrary', { detail: savedEmails }));
-    if (window.renderLibraryUI) window.renderLibraryUI();
+    window.dispatchEvent(new CustomEvent('syncLibrary', { 
+        detail: JSON.parse(localStorage.getItem('tempMailLibrary') || '[]') 
+    }));
 }
+
+
 
 function cleanupOldAccounts() {
     const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
