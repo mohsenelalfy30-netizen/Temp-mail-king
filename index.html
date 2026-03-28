@@ -109,7 +109,6 @@
 </head>
 <body class="bg-white text-black dark:bg-darkBg dark:text-white flex flex-col h-screen overflow-hidden">
 
-    <!-- Header -->
     <header class="flex items-center justify-between px-4 h-[60px] border-b border-gray-200 dark:border-darkBorder bg-white dark:bg-darkCard shrink-0">
         <button id="themeToggle" class="p-2 -ms-2 rounded-full hover:bg-gray-100 dark:hover:bg-darkBorder transition-colors flex items-center justify-center">
             <i data-lucide="moon" id="themeIcon" class="w-6 h-6 text-black dark:text-white"></i>
@@ -120,12 +119,9 @@
         </button>
     </header>
 
-    <!-- Main Content (Scrollable) -->
-    <main id="mainContent" class="flex-1 flex flex-col w-full pb-[110px] bg-white dark:bg-darkBg overflow-hidden">
+    <main id="mainContent" class="flex-1 flex flex-col w-full bg-white dark:bg-darkBg overflow-hidden relative">
         
-        <!-- Home Tab -->
-        <div id="homeTab" class="flex flex-col flex-1 w-full h-full overflow-y-auto custom-scrollbar">
-            <!-- Create Form -->
+        <div id="homeTab" class="flex flex-col flex-1 w-full h-full overflow-y-auto custom-scrollbar pb-[110px]">
             <div class="bg-white dark:bg-darkCard p-4 border-b border-gray-200 dark:border-darkBorder space-y-3 w-full">
                 <div>
                     <input type="text" id="emailPrefix" data-i18n-placeholder="email_prefix" placeholder="" class="w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg px-3 py-3 text-sm focus:outline-none focus:border-iosBlue placeholder-gray-500 dark:placeholder-gray-400 text-black dark:text-white">
@@ -147,7 +143,6 @@
                 </button>
             </div>
 
-            <!-- Banner Ad -->
             <div class="sticky top-0 z-20 w-full flex items-center justify-center bg-gray-200/50 dark:bg-darkBorder/30 border-y border-gray-200 dark:border-darkBorder shrink-0 overflow-hidden h-[50px] md:h-[90px] min-h-[50px] md:min-h-[90px]">
                 <ins class="adsbygoogle"
                      style="display:block; width:100%; height:100%;"
@@ -157,7 +152,6 @@
                      data-full-width-responsive="false"></ins>
             </div>
 
-            <!-- Usage Area (Quick Actions) -->
             <div id="usageArea" class="hidden bg-white dark:bg-darkCard p-4 border-b border-gray-200 dark:border-darkBorder flex-col gap-3 w-full">
                 <div class="flex items-center w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg px-2 py-1" dir="ltr">
                     <input type="text" id="readOnlyEmail" readonly class="flex-1 bg-transparent px-2 py-2 text-sm text-black dark:text-white font-mono focus:outline-none" dir="ltr"><button id="copyEmailBtn" class="inline-flex items-center justify-center p-2 hover:bg-gray-200 dark:hover:bg-darkBorder rounded-lg transition-colors leading-[0] shrink-0" title="Copy Email">
@@ -165,7 +159,6 @@
                     </button>
                 </div>
                 
-                <!-- Activation Hint -->
                 <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg p-3 flex items-start gap-2">
                     <i data-lucide="info" class="w-4 h-4 text-blue-500 mt-0.5 shrink-0"></i>
                     <p id="activationHintText" class="text-xs text-blue-700 dark:text-blue-300 font-medium"></p>
@@ -178,7 +171,6 @@
                 </div>
             </div>
 
-            <!-- Inbox -->
             <div class="bg-white dark:bg-darkCard w-full flex flex-col flex-1">
                 <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-darkBorder">
                     <h2 class="text-lg font-bold text-black dark:text-white" data-i18n="inbox_title">Inbox</h2>
@@ -187,16 +179,14 @@
                         <span class="sr-only" data-i18n="refresh_button">Refresh</span>
                     </button>
                 </div>
-                <div id="messagesList" class="overflow-y-auto p-4 space-y-4 custom-scrollbar" style="height: calc(100vh - 360px);">
+                <div id="messagesList" class="overflow-y-auto p-4 space-y-4 custom-scrollbar" style="min-height: 200px;">
                     <p class="text-center text-gray-500 dark:text-gray-400 text-sm py-8" data-i18n="inbox_empty"></p>
                 </div>
             </div>
         </div>
 
-        <!-- Library Tab -->
-        <div id="libraryTab" class="hidden flex-col flex-1 bg-white dark:bg-darkCard w-full h-full overflow-hidden">
-            <!-- Top Ad -->
-            <div class="w-full flex items-center justify-center bg-gray-200/50 dark:bg-darkBorder/30 border-y border-gray-200 dark:border-darkBorder shrink-0 overflow-hidden h-[50px] md:h-[90px] min-h-[50px] md:min-h-[90px]">
+        <div id="libraryTab" class="hidden flex-col flex-1 bg-white dark:bg-darkCard w-full h-full overflow-hidden pb-[110px]">
+            <div class="w-full flex items-center justify-center bg-gray-200/50 dark:bg-darkBorder/30 border-b border-gray-200 dark:border-darkBorder shrink-0 h-[50px] md:h-[90px]">
                 <ins class="adsbygoogle"
                      style="display:block; width:100%; height:100%;"
                      data-ad-client="YOUR_CLIENT_ID"
@@ -205,13 +195,14 @@
                      data-full-width-responsive="false"></ins>
             </div>
             
-            <div class="p-4 flex flex-col flex-1 overflow-hidden">
-                <h2 class="text-xl font-bold mb-4 text-black dark:text-white shrink-0" data-i18n="library_title"></h2>
-                <div id="libraryList" class="flex flex-col flex-grow overflow-y-auto space-y-3 custom-scrollbar" style="height: calc(100vh - 60px - 90px - 90px - 60px - 50px);"></div>
+            <div class="px-4 py-3 shrink-0">
+                <h2 class="text-xl font-bold text-black dark:text-white" data-i18n="library_title">Library</h2>
             </div>
 
-            <!-- Bottom Ad -->
-            <div class="w-full flex items-center justify-center bg-gray-200/50 dark:bg-darkBorder/30 border-y border-gray-200 dark:border-darkBorder shrink-0 overflow-hidden h-[50px] md:h-[90px] min-h-[50px] md:min-h-[90px] mb-3">
+            <div id="libraryList" class="flex-1 overflow-y-auto px-4 space-y-3 custom-scrollbar">
+                </div>
+
+            <div class="w-full flex items-center justify-center bg-gray-200/50 dark:bg-darkBorder/30 border-t border-gray-200 dark:border-darkBorder shrink-0 h-[50px] md:h-[90px] mb-[3px]">
                 <ins class="adsbygoogle"
                      style="display:block; width:100%; height:100%;"
                      data-ad-client="YOUR_CLIENT_ID"
@@ -222,9 +213,7 @@
         </div>
     </main>
 
-    <!-- Bottom Fixed Area -->
     <div class="fixed bottom-0 w-full z-40 flex flex-col">
-        <!-- Navigation Bar -->
         <nav class="h-[60px] bg-white dark:bg-darkCard border-t border-gray-200 dark:border-darkBorder flex justify-around items-center px-2 shrink-0">
             <button id="navLibrary" class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-500 dark:text-gray-400 transition-colors">
                 <i data-lucide="folder" class="w-6 h-6"></i>
@@ -236,7 +225,6 @@
             </button>
         </nav>
 
-        <!-- In-Page Push Ad -->
         <div id="pushAd" class="h-[50px] bg-blue-50 dark:bg-[#0a192f] border-t border-blue-200 dark:border-[#1e3a8a] flex items-center justify-center text-iosBlue dark:text-blue-400 text-xs font-medium relative shrink-0">
             <span data-i18n="push_ad"></span>
             <button id="closeAdBtn" class="absolute end-4 top-1/2 -translate-y-1/2 p-2 text-blue-400 hover:text-iosBlue dark:text-blue-500 transition-colors">
@@ -245,7 +233,6 @@
         </div>
     </div>
 
-    <!-- Settings Modal -->
     <div id="settingsModal" class="fixed inset-0 bg-white dark:bg-darkBg z-50 hidden flex-col transform transition-transform duration-300 translate-y-full">
         <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-darkBorder bg-white/80 dark:bg-darkCard/80 backdrop-blur-md shrink-0 h-[60px]">
             <div class="flex items-center gap-3">
@@ -259,7 +246,6 @@
             </button>
         </div>
 
-        <!-- Main Menu -->
         <div id="mainMenuView" class="flex-1 overflow-y-auto p-4 space-y-4 bg-white/50 dark:bg-darkBg/50 backdrop-blur-sm transition-opacity duration-300">
             <button id="btnLangMenu" class="w-full flex items-center p-4 bg-white dark:bg-darkCard border border-gray-200 dark:border-darkBorder rounded-xl shadow-sm hover:shadow-md transition-all group">
                 <div class="w-12 h-12 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-iosBlue shrink-0">
@@ -292,7 +278,6 @@
             </button>
         </div>
 
-        <!-- Language View -->
         <div id="langView" class="hidden flex-col flex-1 min-h-0 transition-opacity duration-300 opacity-0">
             <div class="p-4 border-b border-gray-200 dark:border-darkBorder bg-white dark:bg-darkBg shrink-0">
                 <div class="relative">
@@ -301,16 +286,13 @@
                 </div>
             </div>
             <div id="langGrid" class="flex-1 min-h-0 overflow-y-auto p-4 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-white dark:bg-darkBg content-start custom-scrollbar">
-                <!-- Languages injected here -->
-            </div>
+                </div>
         </div>
 
-        <!-- Privacy View -->
         <div id="privacyView" class="hidden flex-col flex-1 min-h-0 overflow-y-auto p-6 bg-white dark:bg-darkBg transition-opacity duration-300 opacity-0">
             <div class="prose dark:prose-invert max-w-none text-black dark:text-white" data-i18n-html="privacy_content"></div>
         </div>
 
-        <!-- FAQ View -->
         <div id="faqView" class="hidden flex-col flex-1 min-h-0 overflow-y-auto p-6 bg-white dark:bg-darkBg transition-opacity duration-300 opacity-0">
             <div class="prose dark:prose-invert max-w-none text-black dark:text-white" data-i18n-html="faq_content"></div>
         </div>
@@ -332,3 +314,4 @@
     </script>
 </body>
 </html>
+
