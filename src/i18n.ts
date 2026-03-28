@@ -90,7 +90,7 @@ export class I18nManager {
         
         let enTranslations = {};
         try {
-            const responseEn = await fetch(`/src/locales/translation(en).json`);
+            const responseEn = await fetch(`/locales/translation(en).json`);
             enTranslations = await responseEn.json();
         } catch (error) {
             console.warn('Failed to load English fallback translations', error);
@@ -99,7 +99,7 @@ export class I18nManager {
         let targetTranslations = {};
         if (this.currentLang !== 'en') {
             try {
-                const responseTarget = await fetch(`/src/locales/translation(${this.currentLang}).json`);
+                const responseTarget = await fetch(`/locales/translation(${this.currentLang}).json`);
                 targetTranslations = await responseTarget.json();
             } catch (error) {
                 console.warn(`Failed to load translations for ${this.currentLang}, falling back to English`, error);
