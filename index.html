@@ -215,19 +215,55 @@
         </div>
 
         <div id="libraryTab" class="hidden flex-col flex-1 bg-white dark:bg-darkCard w-full h-full overflow-hidden relative">
-            <div class="fixed-library-ad-top w-full flex items-center justify-center bg-gray-100 dark:bg-darkBorder/30 border-b border-gray-200 dark:border-darkBorder shrink-0">
-                <ins class="adsbygoogle" style="display:block; width:100%; height:100%;" data-ad-client="YOUR_CLIENT_ID" data-ad-slot="YOUR_SLOT_ID" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
-            </div>
-            
-            <div class="flex-1 overflow-y-auto library-scroll-area p-4 custom-scrollbar">
-                <h2 class="text-xl font-bold mb-4 text-black dark:text-white shrink-0" data-i18n="library_title">المكتبة</h2>
-                <div id="libraryList" class="space-y-3">
-                    </div>
-            </div>
+    <!-- الإعلان العلوي -->
+    <div class="fixed-library-ad-top flex items-center justify-center bg-gray-100 dark:bg-darkBorder/30 border-b border-gray-200 dark:border-darkBorder">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; height:100%;"
+             data-ad-client="YOUR_CLIENT_ID"
+             data-ad-slot="YOUR_SLOT_ID"
+             data-ad-format="horizontal"
+             data-full-width-responsive="false">
+        </ins>
+    </div>
 
-            <div class="fixed-library-ad-bottom">
-                <ins class="adsbygoogle" style="display:block; width:100%; height:100%;" data-ad-client="YOUR_CLIENT_ID" data-ad-slot="YOUR_SLOT_ID" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
-            </div>
+    <!-- محتوى المكتبة مع التمرير الداخلي -->
+    <div class="flex-1 overflow-y-auto library-scroll-area custom-scrollbar p-4">
+        <h2 class="text-xl font-bold mb-4 text-black dark:text-white shrink-0" data-i18n="library_title">المكتبة</h2>
+        <div id="libraryList" class="space-y-3">
+            <!-- الرسائل تظهر هنا -->
+        </div>
+    </div>
+
+    <!-- الإعلان السفلي -->
+    <div class="fixed-library-ad-bottom fixed bottom-[63px] flex items-center justify-center bg-gray-100 dark:bg-darkBorder/30 border-t border-gray-200 dark:border-darkBorder">
+        <ins class="adsbygoogle"
+             style="display:block; width:100%; height:100%;"
+             data-ad-client="YOUR_CLIENT_ID"
+             data-ad-slot="YOUR_SLOT_ID"
+             data-ad-format="horizontal"
+             data-full-width-responsive="false">
+        </ins>
+    </div>
+</div>
+
+<style>
+    /* للإعلانات في الأعلى والأسفل */
+    .fixed-library-ad-top, .fixed-library-ad-bottom {
+        height: 90px; /* الافتراضي */
+    }
+
+    /* ارتفاع الإعلانات حسب عرض الشاشة */
+    @media (max-width: 600px) {
+        .fixed-library-ad-top, .fixed-library-ad-bottom {
+            height: 50px !important;
+        }
+    }
+
+    /* إضافة شريط للتمرير الداخلي */
+    .library-scroll-area {
+        padding-bottom: 120px !important; /* مساحة إضافية للتأكد أن المحتوى لا يغطي الإعلان */
+    }
+</style>
         </div>
 
     </main>
