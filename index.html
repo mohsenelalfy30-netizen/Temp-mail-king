@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Temp Mail King</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { iosBlue: '#007AFF', darkBg: '#000000', darkCard: '#111111', darkBorder: '#222222' }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* إعدادات الشاشة الكاملة لمنع الخروج عن الإطار */
+        html, body { 
+            height: 100%; 
+            margin: 0; 
+            padding: 0; 
+            overflow: hidden; 
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+        
+        /* حاوية التطبيق الرئيسية */
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* حاويات الإعلانات المتجاوبة */
+        .ad-container {
+            width: 100%;
+            background: rgba(156, 163, 175, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-color: rgba(156, 163, 175, 0.2);
+            border-style: solid;
+        }
+        /* ارتفاع ديناميكي: 50px للموبايل و 90px للتابلت */
+        @media (max-width: 640px) { .ad-container { height: 50px !important; } }
+        @media (min-width: 641px) { .ad-container { height: 90px !important; } }
+
+        /* منطقة التمرير الداخلي المحمي */
+        .scroll-section {
+            flex: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .scroll-section::-webkit-scrollbar { width: 0; }
+
+        /* المسافة الدقيقة 3px */
+        .gap-3px { height: 3px; flex-shrink: 0; }
+
+        /* أنميشن المودال */
+        .modal-active { transform: translateY(0) !important; }
+    </style>
+</head>
+<body class="bg-white text-black dark:bg-darkBg dark:text-white">
+
+    <div class="app-container">
+        <header class="h-[60px] border-b border-gray-200 dark:border-darkBorder flex items-center justify-between px-4 bg-white/80 dark:bg-darkCard/80 backdrop-blur-md z-50 shrink-0">
+            <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-darkBorder"><i data-lucide="moon" class="w-6 h-6"></i></button>
+            <h1 class="text-xl font-bold">Temp Mail King</h1>
+            <button id="settingsBtn" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-darkBorder"><i data-lucide="settings" class="w-6 h-6"></i></button>
+        </header>
+
+        <main class="flex-1 relative overflow-hidden">
+            
+            <div id="homeTab" class="flex flex-col h-full w-full">
+                <div class="p-4 space-y-3 shrink-0 bg-white dark:bg-darkBg">
+                    <input type="text" placeholder="اسم بريد مخصص" class="w-full p-3 rounded-xl border border-gray-300 dark:border-darkBorder dark:bg-darkCard outline-none">
+                    <select class="w-full p-3 rounded-xl border border-gray-300 dark:border-darkBorder dark:bg-darkCard outline-none" dir="ltr">
+                        <option>@gmail-inbox.me</option>
+                    </select>
+                    <input type="password" placeholder="كلمة المرور" class="w-full p-3 rounded-xl border border-gray-300 dark:border-darkBorder dark:bg-darkCard outline-none">
+                    <button class="w-full bg-iosBlue text-white py-3 rounded-xl font-bold shadow-lg active:scale-95 transition-transform">إنشاء وربط صندوق الوارد</button>
+                </div>
+
+                <div class="ad-container border-y">
+                    <span class="text-[10px] opacity-40">AD SPACE #1</span>
+                </div>
+
+                <div class="scroll-section p-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-bold">البريد الوارد</h2>
+                        <i data-lucide="refresh-cw" class="w-5 h-5 opacity-50"></i>
+                    </div>
+                    <div id="inboxList" class="space-y-4">
+                        <div class="flex flex-col items-center justify-center py-20 opacity-30">
+                            <i data-lucide="mail-open" class="w-16 h-16"></i>
+                            <p class="mt-2">لا توجد رسائل بعد</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="libraryTab" class="hidden flex flex-col h-full w-full">
+                <div class="ad-container border-b">
+                    <span class="text-[10px] opacity-40">AD SPACE #2 (TOP)</span>
+                </div>
+
+                <div class="scroll-section p-4">
+                    <h2 class="text-2xl font-bold mb-6">المكتبة</h2>
+                    <div id="libList" class="space-y-3">
+                        <div class="flex flex-col items-center justify-center py-20 opacity-30">
+                            <i data-lucide="inbox" class="w-16 h-16"></i>
+                            <p class="mt-2">مكتبتك فارغة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ad-container border-t">
+                    <span class="text-[10px] opacity-40">AD SPACE #3 (BOTTOM)</span>
+                </div>
+                
+                <div class="gap-3px"></div>
+            </div>
+        </main>
+
+        <footer class="shrink-0 flex flex-col z-50">
+            <nav class="h-[65px] bg-white dark:bg-darkCard border-t border-gray-200 dark:border-darkBorder flex justify-around items-center">
+                <button onclick="switchTab('lib')" id="navLib" class="flex flex-col items-center text-gray-400">
+                    <i data-lucide="folder"></i><span class="text-[10px] mt-1">المكتبة</span>
+                </button>
+                <button onclick="switchTab('home')" id="navHome" class="flex flex-col items-center text-iosBlue">
+                    <i data-lucide="mail"></i><span class="text-[10px] mt-1">الرئيسية</span>
+                </button>
+            </nav>
+            <div class="h-[45px] bg-iosBlue text-white flex items-center justify-center text-xs relative">
+                <span>إعلان منبثق في الصفحة</span>
+                <i data-lucide="x" class="w-4 h-4 absolute left-4 cursor-pointer"></i>
+            </div>
+        </footer>
+    </div>
+
+    <div id="settingsModal" class="fixed inset-0 bg-white dark:bg-darkBg z-[100] translate-y-full transition-transform duration-300 flex flex-col">
+        <div class="h-[60px] border-b border-gray-200 dark:border-darkBorder flex items-center justify-between px-4 shrink-0">
+            <button id="modalBack" class="invisible"><i data-lucide="arrow-right"></i></button>
+            <h2 id="modalTitle" class="font-bold">الإعدادات</h2>
+            <button id="closeModal"><i data-lucide="x"></i></button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto" id="modalContent">
+            <div id="mainMenu" class="p-4 space-y-2">
+                <div onclick="showSub('lang')" class="flex items-center p-4 bg-gray-50 dark:bg-darkCard rounded-2xl cursor-pointer">
+                    <i data-lucide="languages" class="text-iosBlue"></i>
+                    <span class="mx-4 flex-1">اللغات</span>
+                    <i data-lucide="chevron-left" class="opacity-30"></i>
+                </div>
+                <div onclick="showSub('privacy')" class="flex items-center p-4 bg-gray-50 dark:bg-darkCard rounded-2xl cursor-pointer">
+                    <i data-lucide="shield-check" class="text-green-500"></i>
+                    <span class="mx-4 flex-1">سياسة الخصوصية</span>
+                    <i data-lucide="chevron-left" class="opacity-30"></i>
+                </div>
+                <div onclick="showSub('faq')" class="flex items-center p-4 bg-gray-50 dark:bg-darkCard rounded-2xl cursor-pointer">
+                    <i data-lucide="help-circle" class="text-purple-500"></i>
+                    <span class="mx-4 flex-1">الأسئلة الشائعة</span>
+                    <i data-lucide="chevron-left" class="opacity-30"></i>
+                </div>
+            </div>
+
+            <div id="langSub" class="hidden p-4">
+                <input type="text" placeholder="بحث عن لغة..." class="w-full p-3 mb-4 rounded-xl border dark:bg-darkCard dark:border-darkBorder">
+                <div class="grid grid-cols-1 gap-2">
+                    <div class="p-4 border-b dark:border-darkBorder flex justify-between"><span>العربية</span><span class="fi fi-eg"></span></div>
+                    <div class="p-4 border-b dark:border-darkBorder flex justify-between"><span>English</span><span class="fi fi-us"></span></div>
+                </div>
+            </div>
+
+            <div id="privacySub" class="hidden p-6 text-sm leading-relaxed">
+                <h3 class="font-bold mb-2">كيف نحمي بياناتك؟</h3>
+                <p class="opacity-70">نحن في Temp Mail King نلتزم بخصوصية المستخدم، جميع الرسائل يتم معالجتها من جانب العميل فقط.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // منطق التبديل بين التبويبات
+        function switchTab(tab) {
+            const h = document.getElementById('homeTab');
+            const l = document.getElementById('libraryTab');
+            const nh = document.getElementById('navHome');
+            const nl = document.getElementById('navLib');
+            
+            if(tab === 'home') {
+                h.classList.remove('hidden'); l.classList.add('hidden');
+                nh.classList.replace('text-gray-400', 'text-iosBlue');
+                nl.classList.replace('text-iosBlue', 'text-gray-400');
+            } else {
+                l.classList.remove('hidden'); h.classList.add('hidden');
+                nl.classList.replace('text-gray-400', 'text-iosBlue');
+                nh.classList.replace('text-iosBlue', 'text-gray-400');
+            }
+        }
+
+        // منطق المودال
+        const modal = document.getElementById('settingsModal');
+        document.getElementById('settingsBtn').onclick = () => modal.classList.add('modal-active');
+        document.getElementById('closeModal').onclick = () => modal.classList.remove('modal-active');
+
+        function showSub(type) {
+            document.getElementById('mainMenu').classList.add('hidden');
+            document.getElementById('modalBack').classList.remove('invisible');
+            if(type === 'lang') document.getElementById('langSub').classList.remove('hidden');
+            if(type === 'privacy') document.getElementById('privacySub').classList.remove('hidden');
+        }
+
+        document.getElementById('modalBack').onclick = () => {
+            document.getElementById('mainMenu').classList.remove('hidden');
+            document.getElementById('langSub').classList.add('hidden');
+            document.getElementById('privacySub').classList.add('hidden');
+            document.getElementById('modalBack').classList.add('invisible');
+        };
+    </script>
+</body>
+</html>
+
