@@ -1,36 +1,40 @@
-/**
- * API Configuration & Proxy Bridge
- * This file handles communication with Smail/Hasaka or your Cloudflare Worker.
- */
-
+// ملف إعدادات الاتصال بـ Cloudflare KV
 export const API_CONFIG = {
-    // Placeholder for your Cloudflare Worker or API endpoint
-    BASE_URL: 'https://api.example.com/v1',
-    // Any other config variables
+    BASE_URL: 'https://api.cloudflare.com/client/v4',
+    // هذه القيم سيتم استبدالها تلقائياً من GitHub Secrets أثناء الـ Build
+    ACCOUNT_ID: 'CLOUDFLARE_ACCOUNT_ID_PLACEHOLDER',
+    KV_NAMESPACE_ID: 'CLOUDFLARE_KV_ID_PLACEHOLDER',
+    API_TOKEN: 'CLOUDFLARE_API_TOKEN_PLACEHOLDER'
 };
 
-/**
- * Fetch inbox for a specific email address.
- * Link this to your Cloudflare Worker later.
- * 
- * @param {string} email - The real email address to fetch messages for.
- * @returns {Promise<Array>} - A promise that resolves to an array of messages.
- */
 export async function fetchInbox(email) {
-    console.log(`[API] Fetching inbox for: ${email}`);
+    if (!email) return [];
     
-    // Placeholder implementation
-    // In the future, replace this with actual fetch call:
-    // const response = await fetch(`${API_CONFIG.BASE_URL}/inbox?email=${encodeURIComponent(email)}`);
-    // return await response.json();
-    
-    return [
-        {
-            id: Date.now().toString(),
-            sender: 'Admin',
-            subject: 'Welcome to your temporary inbox',
-            snippet: 'Waiting for new messages...',
-            date: new Date().toLocaleTimeString(),
+    // تنظيف الإيميل لضمان استخدامه كمفتاح صحيح في KV
+    const cleanEmail = email.trim().toLowerCase();
+    const url = `${API_CONFIG.BASE_URL}/accounts/${API_CONFIG.ACCOUNT_ID}/storage/kv/namespaces/${API_CONFIG.KV_NAMESPACE_ID}/values/${encodeURIComponent(cleanEmail)}`;
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${API_CONFIG.API_TOKEN}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            if (response.status === 404) return []; // لا توجد رسائل لهذا الإيميل بعد
+            throw new Error('خطأ في الاتصال بالمخزن');
         }
-    ];
+
+        const data = await response.json();
+        
+        // التأكد أن البيانات مصفوفة لتعرض في القائمة
+        return Array.isArray(data) ? data : [data];
+        
+    } catch (error) {
+        console.error("Fetch Error:", error);
+        return [];
+    }
 }
