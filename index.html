@@ -199,25 +199,21 @@
                 </ins>
             </div>
 
-            <div id="usageArea" class="hidden bg-white dark:bg-darkCard p-4 border-b border-gray-200 dark:border-darkBorder flex-col gap-3 w-full">
-                <div class="flex items-center w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg px-2 py-1" dir="ltr">
-                    <input type="text" id="readOnlyEmail" readonly class="flex-1 bg-transparent px-2 py-2 text-sm text-black dark:text-white font-mono focus:outline-none" dir="ltr"><button id="copyEmailBtn" class="inline-flex items-center justify-center p-2 hover:bg-gray-200 dark:hover:bg-darkBorder rounded-lg transition-colors leading-[0] shrink-0" title="Copy Email">
-                        <i data-lucide="copy" class="w-4 h-4" id="copyEmailIcon"></i>
-                    </button>
-                </div>
-                
-                <!-- Activation Hint -->
-                <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg p-3 flex items-start gap-2">
-                    <i data-lucide="info" class="w-4 h-4 text-blue-500 mt-0.5 shrink-0"></i>
-                    <p id="activationHintText" class="text-xs text-blue-700 dark:text-blue-300 font-medium"></p>
-                </div>
+            <div id="usageArea" class="hidden flex-col ..."> 
+    <div class="flex items-center ...">
+        <input type="text" id="readOnlyEmail" readonly ...>
+        <button id="copyEmailBtn" ...>
+            <i id="copyEmailIcon" data-lucide="copy"></i> </button>
+    </div>
 
-                <div class="flex items-center w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg px-2 py-1" dir="ltr">
-                    <input type="text" id="readOnlyPassword" readonly class="flex-1 bg-transparent px-2 py-2 text-sm text-black dark:text-white font-mono focus:outline-none" dir="ltr"><button id="copyPasswordBtn" class="inline-flex items-center justify-center p-2 hover:bg-gray-200 dark:hover:bg-darkBorder rounded-lg transition-colors leading-[0] shrink-0" title="Copy Password">
-                        <i data-lucide="copy" class="w-4 h-4" id="copyPasswordIcon"></i>
-                    </button>
-                </div>
-                    
+    <div class="flex items-center ...">
+        <input type="text" id="readOnlyPassword" readonly ...>
+        <button id="copyPasswordBtn" ...>
+            <i id="copyPasswordIcon" data-lucide="copy"></i> </button>
+    </div>
+</div>
+
+            
                     <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg p-3 flex items-start gap-2">
                         <i data-lucide="info" class="w-4 h-4 text-blue-500 mt-0.5 shrink-0"></i>
                         <p id="activationHintText" class="text-xs text-blue-700 dark:text-blue-300 font-medium"></p>
