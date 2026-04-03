@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Temp Mail King</title>
+    <meta name="description" content="Professional temporary email web application with smart link logic and ad spaces.">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    
+    <script type="module">
+        import { LANGUAGES } from './src/i18n.ts';
+        const head = document.head;
+        LANGUAGES.forEach(lang => {
+            const link = document.createElement('link');
+            link.rel = 'alternate';
+            link.hreflang = lang.code;
+            link.href = `${window.location.origin}/?lang=${lang.code}`;
+            head.appendChild(link);
+        });
+        const defaultLink = document.createElement('link');
+        defaultLink.rel = 'alternate';
+        defaultLink.hreflang = 'x-default';
+        defaultLink.href = `${window.location.origin}/?lang=en`;
+        head.appendChild(defaultLink);
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"/>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        iosBlue: '#007AFF',
+                        darkBg: '#000000',
+                        darkCard: '#111111',
+                        darkBorder: '#222222',
+                        darkInput: '#222222'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .lucide { display: inline-flex !important; align-self: center; }
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: system-ui, -apple-system, sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+            background-color: #ffffff;
+            height: 100vh;
+            overflow: hidden;
+        }
+        body.dark { background-color: #000000; }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+        
+        /* Flag styling */
+        .fi-circle {
+            border-radius: 50%;
+            width: 24px !important;
+            height: 24px !important;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(128, 128, 128, 0.2);
+        }
+
+        /* Language Modal Optimization */
+        #langGrid {
+            flex: 1;
+            overflow-y: auto;
+            max-height: calc(90vh - 120px);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* --- نظام الإعلانات الموحد للمكتبة --- */
+        .lib-ad-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(243, 244, 246, 0.8);
+            border-color: rgba(229, 231, 235, 1);
+            shrink-0: 0;
+            z-index: 30;
+        }
+        .dark .lib-ad-container {
+            background: rgba(34, 34, 34, 0.8);
+            border-color: #222222;
+        }
+
+        .fixed-library-ad-bottom {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 63px; /* 60px Nav + 3px Gap */
+            border-top-width: 1px;
+        }
+
+        /* التحكم في الأحجام المتجاوبة */
+        @media (max-width: 600px) {
+            .lib-ad-container { height: 50px !important; }
+            .library-scroll-area { padding-bottom: 120px !important; }
+        }
+        @media (min-width: 601px) {
+            .lib-ad-container { height: 90px !important; }
+            .library-scroll-area { padding-bottom: 160px !important; }
+        }
+    </style>
+</head>
+<body class="bg-white text-black dark:bg-darkBg dark:text-white flex flex-col">
+
+    <header class="flex items-center justify-between px-4 h-[60px] border-b border-gray-200 dark:border-darkBorder bg-white dark:bg-darkCard shrink-0">
+        <button id="themeToggle" class="p-2 -ms-2 rounded-full hover:bg-gray-100 dark:hover:bg-darkBorder transition-colors flex items-center justify-center">
+            <i data-lucide="moon" id="themeIcon" class="w-6 h-6 text-black dark:text-white"></i>
+        </button>
+        <h1 class="text-xl font-semibold tracking-wide" data-i18n="page_title">Temp Mail King</h1>
+        <button id="settingsBtn" class="p-2 -me-2 rounded-full hover:bg-gray-100 dark:hover:bg-darkBorder transition-colors flex items-center justify-center">
+            <i data-lucide="settings" class="w-6 h-6 text-black dark:text-white"></i>
+        </button>
+    </header>
+
+    <main id="mainContent" class="flex-1 flex flex-col w-full bg-white dark:bg-darkBg overflow-hidden relative">
+        
+        <div id="homeTab" class="flex flex-col flex-1 w-full h-full overflow-y-auto pb-[120px]">
+            <div class="bg-white dark:bg-darkCard p-4 border-b border-gray-200 dark:border-darkBorder space-y-3 w-full">
+                <div>
+                    <input type="text" id="emailPrefix" data-i18n-placeholder="email_prefix" class="w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg px-3 py-3 text-sm focus:outline-none focus:border-iosBlue text-black dark:text-white">
+                    <p id="prefixWarning" class="text-red-500 text-xs mt-1 hidden" data-i18n="duplicate_email_error"></p>
+                </div>
+                
+                <div class="relative">
+                    <select id="emailDomain" class="w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg px-3 py-3 pe-10 text-sm focus:outline-none focus:border-iosBlue appearance-none text-black dark:text-white" dir="ltr"></select>
+                    <div class="absolute right-3 top-0 flex items-center justify-center h-full pointer-events-none text-gray-500">
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+                <input type="password" id="emailPassword" data-i18n-placeholder="password" class="w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg px-3 py-3 text-sm focus:outline-none focus:border-iosBlue text-black dark:text-white">
+                <button id="createBtn" data-i18n="create_btn" class="w-full bg-iosBlue hover:bg-blue-600 text-white font-medium rounded-lg py-3 text-base transition-colors"></button>
+            </div>
+
+            <div class="sticky top-0 z-20 w-full flex items-center justify-center bg-gray-200/50 dark:bg-darkBorder/30 border-y border-gray-200 dark:border-darkBorder shrink-0 h-[50px] md:h-[90px]">
+                <ins class="adsbygoogle" style="display:block; width:100%; height:100%;" data-ad-client="YOUR_CLIENT_ID" data-ad-slot="YOUR_SLOT_ID" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+            </div>
+
+            <div id="usageArea" class="hidden bg-white dark:bg-darkCard p-4 border-b border-gray-200 dark:border-darkBorder flex-col gap-3 w-full">
+                <div class="flex items-center w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg px-2 py-1" dir="ltr">
+                    <input type="text" id="readOnlyEmail" readonly class="flex-1 bg-transparent px-2 py-2 text-sm text-black dark:text-white font-mono focus:outline-none">
+                    <button id="copyEmailBtn" class="p-2 hover:bg-gray-200 dark:hover:bg-darkBorder rounded-lg transition-colors"><i data-lucide="copy" class="w-4 h-4"></i></button>
+                </div>
+                <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800/30 rounded-lg p-3 flex items-start gap-2">
+                    <i data-lucide="info" class="w-4 h-4 text-blue-500 mt-0.5 shrink-0"></i>
+                    <p id="activationHintText" class="text-xs text-blue-700 dark:text-blue-300 font-medium"></p>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard w-full flex flex-col flex-1 min-h-[300px]">
+                <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-darkBorder">
+                    <h2 class="text-lg font-bold text-black dark:text-white" data-i18n="inbox_title">Inbox</h2>
+                    <button id="refreshInboxBtn" class="p-2 text-gray-500 hover:text-blue-500 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-darkBorder">
+                        <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div id="messagesList" class="p-4 space-y-4">
+                    <p class="text-center text-gray-500 dark:text-gray-400 text-sm py-8" data-i18n="inbox_empty"></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="libraryTab" class="hidden flex-col flex-1 bg-white dark:bg-darkCard w-full h-full overflow-hidden relative">
+            <div class="lib-ad-container border-b shrink-0">
+                <ins class="adsbygoogle" style="display:block; width:100%; height:100%;" data-ad-client="YOUR_CLIENT_ID" data-ad-slot="YOUR_SLOT_ID" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+            </div>
+
+            <div class="flex-1 overflow-y-auto library-scroll-area p-4 custom-scrollbar">
+                <h2 class="text-xl font-bold mb-4 text-black dark:text-white" data-i18n="library_title">المكتبة</h2>
+                <div id="libraryList" class="space-y-3">
+                    </div>
+            </div>
+
+            <div class="lib-ad-container fixed-library-ad-bottom">
+                <ins class="adsbygoogle" style="display:block; width:100%; height:100%;" data-ad-client="YOUR_CLIENT_ID" data-ad-slot="YOUR_SLOT_ID" data-ad-format="horizontal" data-full-width-responsive="false"></ins>
+            </div>
+        </div>
+    </main>
+
+    <div class="fixed bottom-0 w-full z-40 flex flex-col shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+        <nav class="h-[60px] bg-white dark:bg-darkCard border-t border-gray-200 dark:border-darkBorder flex justify-around items-center px-2 shrink-0">
+            <button id="navLibrary" class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-500 dark:text-gray-400 transition-colors">
+                <i data-lucide="folder" class="w-6 h-6"></i>
+                <span class="text-[10px] font-medium" data-i18n="nav_library">Library</span>
+            </button>
+            <button id="navHome" class="flex flex-col items-center justify-center w-full h-full space-y-1 text-iosBlue transition-colors">
+                <i data-lucide="mail" class="w-6 h-6"></i>
+                <span class="text-[10px] font-medium" data-i18n="nav_home">Home</span>
+            </button>
+        </nav>
+
+        <div id="pushAd" class="h-[50px] bg-blue-50 dark:bg-[#0a192f] border-t border-blue-200 dark:border-[#1e3a8a] flex items-center justify-center text-iosBlue dark:text-blue-400 text-xs font-medium relative shrink-0">
+            <span data-i18n="push_ad">Push Ad Space</span>
+            <button id="closeAdBtn" class="absolute end-4 top-1/2 -translate-y-1/2 p-2"><i data-lucide="x" class="w-5 h-5"></i></button>
+        </div>
+    </div>
+
+    <div id="settingsModal" class="fixed inset-0 bg-white dark:bg-darkBg z-50 hidden flex-col transform transition-transform duration-300 translate-y-full">
+        <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-darkBorder bg-white dark:bg-darkCard shrink-0 h-[60px]">
+            <div class="flex items-center gap-3">
+                <button id="backBtn" class="hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-darkBorder transition-colors"><i data-lucide="arrow-left" class="w-6 h-6"></i></button>
+                <h2 id="settingsTitle" class="text-xl font-bold text-black dark:text-white" data-i18n="settings_title">Settings</h2>
+            </div>
+            <button id="closeSettingsModal" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-darkBorder transition-colors"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
+
+        <div id="mainMenuView" class="flex-1 overflow-y-auto p-4 space-y-4">
+            <button id="btnLangMenu" class="w-full flex items-center p-4 bg-white dark:bg-darkCard border border-gray-200 dark:border-darkBorder rounded-xl shadow-sm hover:shadow-md transition-all group">
+                <div class="w-12 h-12 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-iosBlue shrink-0"><i data-lucide="languages" class="w-6 h-6"></i></div>
+                <div class="ms-4 text-start flex-1"><h3 class="text-lg font-semibold text-black dark:text-white" data-i18n="lang_option">Language</h3></div>
+                <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400 group-hover:text-iosBlue transition-colors"></i>
+            </button>
+            </div>
+
+        <div id="langView" class="hidden flex-col flex-1 min-h-0 p-4 opacity-0 transition-opacity">
+            <div class="relative mb-4">
+                <i data-lucide="search" class="absolute start-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                <input type="text" id="langSearch" data-i18n-placeholder="search_lang" class="w-full bg-gray-50 dark:bg-darkInput border border-gray-300 dark:border-darkBorder rounded-lg ps-10 pe-4 py-3 focus:outline-none text-black dark:text-white">
+            </div>
+            <div id="langGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 custom-scrollbar"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./domains.js"></script>
+    <script type="module" src="./logic.js"></script>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').catch(err => console.log('SW Error: ', err));
+            });
+        }
+    </script>
+</body>
+</html>
+
