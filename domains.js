@@ -1,15 +1,15 @@
 export const DOMAINS = [
     // Gmail-style
-    { pretty: 'gmail-inbox.me', real: 'king.pp.ua' },
-    { pretty: 'gmail-fast.com', real: 'fast-real.com' },
-    { pretty: 'gmail-secure.net', real: 'secure-real.net' },
-    { pretty: 'gmail-temp.org', real: 'temp-real.org' },
-    { pretty: 'gmail-drop.me', real: 'drop-real.me' },
-    { pretty: 'gmail-safe.com', real: 'safe-real.com' },
-    { pretty: 'gmail-quick.net', real: 'quick-real.net' },
-    { pretty: 'gmail-box.org', real: 'box-real.org' },
-    { pretty: 'gmail-shield.me', real: 'shield-real.me' },
-    { pretty: 'gmail-pro.com', real: 'pro-real.com' },
+    { pretty: 'gmail-inbox.me', real: 'king-tmail.tech' },
+    { pretty: 'gmail-fast.com', real: 'king-tmail.tech' },
+    { pretty: 'gmail-secure.net', real: 'king-tmail.tech' },
+    { pretty: 'gmail-temp.org', real: 'king-tmail.tech' },
+    { pretty: 'gmail-drop.me', real: 'king-tmail.tech' },
+    { pretty: 'gmail-safe.com', real: 'king-tmail.tech' },
+    { pretty: 'gmail-quick.net', real: 'king-tmail.tech' },
+    { pretty: 'gmail-box.org', real: 'king-tmail.tech' },
+    { pretty: 'gmail-shield.me', real: 'king-tmail.tech' },
+    { pretty: 'gmail-pro.com', real: 'king-tmail.tech' },
     
     // Edu-style
     { pretty: 'student-mail.edu.pl', real: 'edu-real.pl' },
