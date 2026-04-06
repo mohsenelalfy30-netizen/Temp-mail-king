@@ -458,50 +458,76 @@ async function showEmail(email, isReRender = false) {
 
 // --- تمت الإضافة: دالة مساعدة متخصصة في جلب وبناء واجهة Gmail ---
 async function fetchAndRenderMessages(realEmail) {
-    let messages = [];
+    const inboxContainer = document.getElementById('inboxContainer');
+    if (!inboxContainer) return;
+
     try {
-        messages = await fetchInbox(realEmail);
-    } catch (error) {
-        console.error('Failed to fetch inbox:', error);
+        const data = await fetchInbox(email);
+        const messages = data.messages || [];
+
+        if (messages.length === 0) {
+            inboxContainer.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-12 text-gray-500">
+                    <i data-lucide="mail-open" class="w-16 h-16 mb-4 opacity-20"></i>
+                    <p>${i18n.t('no_messages')}</p>
+                </div>`;
+        } else {
+            messages.sort((a, b) => b.timestamp - a.timestamp);
+
+            inboxContainer.innerHTML = messages.map((msg) => {
+                let rawBody = msg.body || "";
+                
+                // --- نظام فك التشفير الشامل ---
+                function decodeMassive(text) {
+                    try {
+                        // 1. التعامل مع Quoted-Printable (LinkedIn & Others)
+                        if (text.includes('=D8') || text.includes('=\r\n')) {
+                            text = text.replace(/=\r?\n/g, '').replace(/=([0-9A-F]{2})/g, (match, p1) => String.fromCharCode(parseInt(p1, 16)));
+                        }
+                        // 2. محاولة فك ترميز UTF-8 للعربية
+                        return decodeURIComponent(escape(text));
+                    } catch (e) {
+                        return text; // العودة للنص الأصلي إذا فشل التشفير المعقد
+                    }
+                }
+
+                let processedBody = decodeMassive(rawBody);
+
+                // --- استخراج أكواد التفعيل تلقائياً ---
+                const otpMatch = processedBody.match(/\b\d{4,8}\b/);
+                const otpBox = otpMatch ? `
+                    <div class="mb-3 p-3 bg-blue-50 dark:bg-blue-900/20 border-2 border-dashed border-blue-200 dark:border-blue-800 rounded-lg text-center">
+                        <span class="text-xs text-blue-500 block mb-1">رمز التحقق المكتشف</span>
+                        <span class="text-2xl font-black text-blue-700 dark:text-blue-400 tracking-widest">${otpMatch[0]}</span>
+                    </div>` : '';
+
+                return `
+                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl mb-3 overflow-hidden shadow-sm hover:shadow-md transition-all">
+                    <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="w-full p-4 flex items-center justify-between text-right">
+                        <div class="flex items-center space-x-3 rtl:space-x-reverse min-w-0">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold shrink-0">
+                                ${msg.from.charAt(0).toUpperCase()}
+                            </div>
+                            <div class="truncate">
+                                <p class="text-sm font-bold text-gray-900 dark:text-white truncate">${msg.from}</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 truncate">${msg.subject}</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-gray-400 shrink-0 mr-2">${new Date(msg.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                    </button>
+                    <div class="hidden p-4 border-t border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/50">
+                        ${otpBox}
+                        <div class="message-content text-sm text-gray-700 dark:text-gray-300 overflow-x-auto leading-relaxed">
+                            ${processedBody.includes('<table') || processedBody.includes('<div') ? processedBody : `<pre class="whitespace-pre-wrap font-sans">${processedBody}</pre>`}
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+        if (window.lucide) window.lucide.createIcons();
+    } catch (err) {
+        console.error('Render Error:', err);
     }
-    
-    if (!messages || messages.length === 0) {
-        const emptyMsg = i18n.getTranslation('inbox_empty') || 'Inbox is empty...';
-        messagesList.innerHTML = `<p class="text-center text-gray-500 text-sm py-8" data-i18n="inbox_empty">${emptyMsg}</p>`;
-        return;
-    }
-
-    // بناء قائمة الرسائل بشكل تفاعلي واحترافي
-    messagesList.innerHTML = (Array.isArray(messages) ? messages : []).map((msg, idx) => {
-        // الحفاظ على منطق الترجمة الأصلي الخاص بك
-        const senderName = msg.sender === 'Admin' ? (i18n.getTranslation('admin_name') || msg.sender) : msg.sender;
-        const subj = msg.subject === 'Welcome to your temporary inbox' ? (i18n.getTranslation('welcome_msg') || msg.subject) : msg.subject;
-        const snippetText = msg.snippet === 'Waiting for new messages...' ? (i18n.getTranslation('no_new_msg') || msg.snippet) : (msg.snippet || msg.body || '');
-
-        return `
-            <div class="bg-white dark:bg-darkCard border border-gray-200 dark:border-darkBorder rounded-xl overflow-hidden shadow-sm mb-3">
-                <div class="p-4 flex items-center justify-between cursor-pointer hover:bg-gray-50 dark:hover:bg-darkInput transition-colors" 
-                     onclick="document.getElementById('msg-body-${idx}').classList.toggle('hidden'); document.getElementById('icon-${idx}').classList.toggle('rotate-180');">
-                    <div class="flex flex-col gap-1 overflow-hidden">
-                        <span class="text-[10px] font-bold text-iosBlue uppercase tracking-widest">${senderName}</span>
-                        <h3 class="text-sm font-semibold text-gray-900 dark:text-white truncate">${subj}</h3>
-                    </div>
-                    <div class="flex items-center gap-2 shrink-0">
-                        <span class="text-[10px] text-gray-400 font-mono" dir="ltr">${msg.date || ''}</span>
-                        <i data-lucide="chevron-down" id="icon-${idx}" class="w-4 h-4 text-gray-400 transition-transform duration-300"></i>
-                    </div>
-                </div>
-                <div id="msg-body-${idx}" class="hidden border-t border-gray-100 dark:border-darkBorder bg-gray-50 dark:bg-black/10 p-4">
-                    <div class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed overflow-auto">
-                        ${snippetText}
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('');
-
-    // تحديث الأيقونات للرسائل الجديدة
-    if (window.lucide) window.lucide.createIcons();
 }
 
 window.loadFromLibrary = (email) => {
