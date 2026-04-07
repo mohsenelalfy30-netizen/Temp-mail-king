@@ -37,7 +37,7 @@
   "faq_title": "Frequently Asked Questions",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>We do not store messages permanently; they are automatically deleted after a short period.</li>\n      <li>We do not ask for any personal data or identities to create an email.</li>\n      <li>The service is designed to protect your privacy from spam.</li>\n      <li>By using the site, you agree to the automatic deletion of data every 24 hours.</li>\n    </ul>\n  ",
   "refresh_button": "Refresh",
-  "inbox_title": "Inbox"
+  "inbox_title": "Inbox",
   "inbox_full_title": "Inbox Full (2/2)",
   "inbox_full_desc": "You have received the maximum number of messages. For security and organization, please create a new email to receive more messages.",
   "verification_code": "Verification Code Detected"
