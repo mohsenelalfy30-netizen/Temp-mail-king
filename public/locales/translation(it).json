@@ -37,5 +37,12 @@
   "faq_title": "Domande frequenti",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Non memorizziamo i messaggi in modo permanente; vengono automaticamente cancellati dopo un breve periodo.</li>\n      <li>Non chiediamo alcun dato personale o identità per creare un'e-mail.</li>\n      <li>Il servizio è progettato per proteggere la tua privacy dallo spam.</li>\n      <li>Utilizzando il sito accetti la cancellazione automatica dei dati ogni 24 ore.</li>\n    </ul>\n  ",
   "refresh_button": "Aggiorna",
-  "inbox_title": "Posta in arrivo"
+  "inbox_title": "Posta in arrivo",
+  "no_messages": "Nessun messaggio in arrivo",
+  "verification_code": "Codice di verifica rilevato",
+  "unknown_sender": "Mittente sconosciuto",
+  "no_subject": "Nessun oggetto",
+  "email_taken_error": "Spiacenti, questo nome è già occupato",
+  "inbox_full_title": "Posta in arrivo piena (2/2)",
+  "inbox_full_desc": "Limite raggiunto. I messaggi più vecchi verranno eliminati automaticamente."
 }
