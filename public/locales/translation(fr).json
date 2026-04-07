@@ -38,4 +38,11 @@
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Nous ne stockons pas les messages de manière permanente ; ils sont automatiquement supprimés après une courte période.</li>\n      <li>Nous ne demandons aucune donnée personnelle ou identité pour créer un email.</li>\n      <li>Le service est conçu pour protéger votre vie privée du spam.</li>\n      <li>En utilisant le site, vous acceptez la suppression automatique des données toutes les 24 heures.</li>\n    </ul>\n  ",
   "refresh_button": "Rafraîchir",
   "inbox_title": "Boîte de réception"
+  "no_messages": "Aucun message reçu pour le moment",
+  "verification_code": "Code de vérification détecté",
+  "unknown_sender": "Expéditeur inconnu",
+  "no_subject": "Sans objet",
+  "email_taken_error": "Désolé, ce nom est déjà utilisé, essayez-en un autre",
+  "inbox_full_title": "Boîte de réception pleine (2/2)",
+  "inbox_full_desc": "Limite atteinte. Les anciens messages seront supprimés à l'arrivée de nouveaux."
 }
