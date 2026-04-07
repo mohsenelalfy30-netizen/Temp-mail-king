@@ -37,5 +37,12 @@
   "faq_title": "Häufig gestellte Fragen",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Wir speichern Nachrichten nicht dauerhaft; sie werden nach kurzer Zeit automatisch gelöscht.</li>\n      <li>Für die Erstellung einer E-Mail fragen wir Sie nicht nach personenbezogenen Daten oder Identitäten.</li>\n      <li>Der Dienst soll Ihre Privatsphäre vor Spam schützen.</li>\n      <li>Durch die Nutzung der Website stimmen Sie der automatischen Löschung der Daten alle 24 Stunden zu.</li>\n    </ul>\n  ",
   "refresh_button": "Aktualisieren",
-  "inbox_title": "Posteingang"
+  "inbox_title": "Posteingang",
+  "no_messages": "Noch keine eingehenden Nachrichten",
+  "verification_code": "Erkannter Bestätigungscode",
+  "unknown_sender": "Unbekannter Absender",
+  "no_subject": "Kein Betreff",
+  "email_taken_error": "Entschuldigung, dieser Name ist bereits vergeben",
+  "inbox_full_title": "Posteingang voll (2/2)",
+  "inbox_full_desc": "Limit erreicht. Ältere Nachrichten werden automatisch gelöscht."
 }
