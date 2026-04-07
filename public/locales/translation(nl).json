@@ -37,5 +37,12 @@
   "faq_title": "Veelgestelde vragen",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Wij bewaren berichten niet permanent; ze worden na korte tijd automatisch verwijderd.</li>\n      <li>We vragen niet om persoonlijke gegevens of identiteiten om een ​​e-mail aan te maken.</li>\n      <li>De service is ontworpen om uw privacy tegen spam te beschermen.</li>\n      <li>Door de site te gebruiken, gaat u akkoord met het automatisch verwijderen van gegevens elke 24 uur.</li>\n    </ul>\n  ",
   "refresh_button": "Vernieuwen",
-  "inbox_title": "Postvak IN"
+  "inbox_title": "Postvak IN",
+  "no_messages": "Nog geen inkomende berichten",
+  "verification_code": "Verificatiecode gedetecteerd",
+  "unknown_sender": "Onbekende afzender",
+  "no_subject": "Geen onderwerp",
+  "email_taken_error": "Sorry, deze naam is al in gebruik",
+  "inbox_full_title": "Inbox vol (2/2)",
+  "inbox_full_desc": "Limiet bereikt. Oude berichten worden automatisch verwijderd bij nieuwe berichten."
 }
