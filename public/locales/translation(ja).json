@@ -37,5 +37,12 @@
   "faq_title": "よくある質問",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>メッセージは永続的に保存されません。これらは短期間で自動的に削除されます。</li>\n      <li>電子メールを作成するために個人データや身元情報を要求することはありません。</li>\n      <li>このサービスは、スパムからプライバシーを保護するように設計されています。</li>\n      <li>サイトを使用すると、24 時間ごとのデータの自動削除に同意したことになります。</li>\n    </ul>\n  ",
   "refresh_button": "リフレッシュ",
-  "inbox_title": "受信箱"
+  "inbox_title": "受信箱",
+  "no_messages": "受信メッセージはまだありません",
+  "verification_code": "検出された確認コード",
+  "unknown_sender": "不明な送信者",
+  "no_subject": "件名なし",
+  "email_taken_error": "申し訳ありませんが、この名前は現在使用されています",
+  "inbox_full_title": "受信トレイがいっぱいです (2/2)",
+  "inbox_full_desc": "制限に達しました。新しいメッセージが届くと、古いメッセージは自動的に削除されます。"
 }
