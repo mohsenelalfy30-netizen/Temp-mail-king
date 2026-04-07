@@ -541,8 +541,8 @@ async function fetchAndRenderMessages(realEmail) {
         let htmlContent = '';
 
         if (messages.length >= 2) {
-            const inboxFullTitle = i18n.getTranslation('inbox_full_title') || 'الصندوق ممتلئ (2/2)';
-            const inboxFullDesc = i18n.getTranslation('inbox_full_desc') || 'لقد استلمت الحد الأقصى للرسائل. للحفاظ على الأمان والتنظيم، يرجى إنشاء إيميل جديد لاستقبال رسائل إضافية.';
+            const inboxFullTitle = i18n.getTranslation('inbox_full_title');
+            const inboxFullDesc = i18n.getTranslation('inbox_full_desc');
             
             htmlContent += `
                 <div class="mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-center shadow-sm">
