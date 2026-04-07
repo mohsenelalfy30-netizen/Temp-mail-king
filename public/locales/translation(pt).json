@@ -37,5 +37,12 @@
   "faq_title": "Perguntas frequentes",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Não armazenamos mensagens permanentemente; eles são excluídos automaticamente após um curto período.</li>\n      <li>Não solicitamos quaisquer dados pessoais ou identidades para criar um email.</li>\n      <li>O serviço foi projetado para proteger sua privacidade contra spam.</li>\n      <li>Ao utilizar o site, você concorda com a exclusão automática dos dados a cada 24 horas.</li>\n    </ul>\n  ",
   "refresh_button": "Atualizar",
-  "inbox_title": "Caixa de entrada"
+  "inbox_title": "Caixa de entrada",
+  "no_messages": "Ainda não há mensagens recebidas",
+  "verification_code": "Código de verificação detetado",
+  "unknown_sender": "Remetente desconhecido",
+  "no_subject": "Sem assunto",
+  "email_taken_error": "Desculpe, este nome já está em uso",
+  "inbox_full_title": "Caixa de entrada cheia (2/2)",
+  "inbox_full_desc": "Limite atingido. As mensagens mais antigas serão eliminadas automaticamente."
 }
