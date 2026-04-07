@@ -37,5 +37,12 @@
   "faq_title": "Sıkça Sorulan Sorular",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Mesajları kalıcı olarak saklamayız; kısa bir süre sonra otomatik olarak silinirler.</li>\n      <li>E-posta oluşturmak için herhangi bir kişisel veri veya kimlik talep etmiyoruz.</li>\n      <li>Hizmet, gizliliğinizi spam'den korumak için tasarlanmıştır.</li>\n      <li>Siteyi kullanarak verilerin her 24 saatte bir otomatik olarak silinmesini kabul etmiş olursunuz.</li>\n    </ul>\n  ",
   "refresh_button": "Yenile",
-  "inbox_title": "Gelen kutusu"
+  "inbox_title": "Gelen kutusu",
+  "no_messages": "Henüz gelen mesaj yok",
+  "verification_code": "Doğrulama kodu tespit edildi",
+  "unknown_sender": "Bilinmeyen gönderen",
+  "no_subject": "Konu yok",
+  "email_taken_error": "Üzgünüz, bu isim şu anda kullanımda",
+  "inbox_full_title": "Gelen kutusu dolu (2/2)",
+  "inbox_full_desc": "Sınıra ulaşıldı. Yeni mesajlar geldiğinde eski mesajlar otomatik olarak silinecektir."
 }
