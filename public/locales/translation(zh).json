@@ -37,5 +37,12 @@
   "faq_title": "常见问题解答",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>我们不会永久存储消息；它们会在短时间内自动删除。</li>\n      <li>我们不会要求任何个人数据或身份来创建电子邮件。</li>\n      <li>该服务旨在保护您的隐私免受垃圾邮件的侵害。</li>\n      <li>使用该网站即表示您同意每 24 小时自动删除一次数据。</li>\n    </ul>\n  ",
   "refresh_button": "刷新",
-  "inbox_title": "收件箱"
+  "inbox_title": "收件箱",
+  "no_messages": "尚无收件",
+  "verification_code": "检测到验证码",
+  "unknown_sender": "未知发件人",
+  "no_subject": "无主题",
+  "email_taken_error": "抱歉，该名称已被占用",
+  "inbox_full_title": "收件箱已满 (2/2)",
+  "inbox_full_desc": "已达到限制。新邮件到达时将自动删除旧邮件。"
 }
