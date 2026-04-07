@@ -44,5 +44,12 @@
   "no_subject": "Sem assunto",
   "email_taken_error": "Desculpe, este nome já está em uso",
   "inbox_full_title": "Caixa de entrada cheia (2/2)",
-  "inbox_full_desc": "Limite atingido. As mensagens mais antigas serão eliminadas automaticamente."
+  "inbox_full_desc": "Limite atingido. As mensagens mais antigas serão eliminadas automaticamente.",
+  "no_messages": "Ainda não há mensagens",
+  "verification_code": "Código de verificação detectado",
+  "unknown_sender": "Remetente desconhecido",
+  "no_subject": "Sem assunto",
+  "email_taken_error": "Desculpe, este nome já está em uso",
+  "inbox_full_title": "Caixa de entrada cheia (2/2)",
+  "inbox_full_desc": "Limite atingido. As mensagens antigas serão apagadas automaticamente ao chegar novas."
 }
