@@ -37,5 +37,12 @@
   "faq_title": "Câu hỏi thường gặp",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Chúng tôi không lưu trữ tin nhắn vĩnh viễn; chúng sẽ tự động bị xóa sau một thời gian ngắn.</li>\n      <li>Chúng tôi không yêu cầu bất kỳ dữ liệu cá nhân hoặc danh tính nào để tạo email.</li>\n      <li>Dịch vụ này được thiết kế để bảo vệ quyền riêng tư của bạn khỏi thư rác.</li>\n      <li>Bằng cách sử dụng trang web, bạn đồng ý với việc tự động xóa dữ liệu sau mỗi 24 giờ.</li>\n    </ul>\n  ",
   "refresh_button": "Làm cho khỏe lại",
-  "inbox_title": "Hộp thư đến"
+  "inbox_title": "Hộp thư đến",
+  "no_messages": "Chưa có thư đến",
+  "verification_code": "Mã xác minh được tìm thấy",
+  "unknown_sender": "Người gửi không xác định",
+  "no_subject": "Không có tiêu đề",
+  "email_taken_error": "Xin lỗi, tên này đã được sử dụng",
+  "inbox_full_title": "Hộp thư đầy (2/2)",
+  "inbox_full_desc": "Đã đạt giới hạn. Các tin nhắn cũ sẽ tự động bị xóa khi có tin nhắn mới."
 }
