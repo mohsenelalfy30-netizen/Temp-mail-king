@@ -37,5 +37,12 @@
   "faq_title": "Często zadawane pytania",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Nie przechowujemy wiadomości na stałe; są one automatycznie usuwane po krótkim czasie.</li>\n      <li>Nie wymagamy podawania żadnych danych osobowych ani tożsamości w celu utworzenia wiadomości e-mail.</li>\n      <li>Usługa ma na celu ochronę Twojej prywatności przed spamem.</li>\n      <li>Korzystając z serwisu wyrażasz zgodę na automatyczne usuwanie danych co 24 godziny.</li>\n    </ul>\n  ",
   "refresh_button": "Odświeżać",
-  "inbox_title": "Skrzynka odbiorcza"
+  "inbox_title": "Skrzynka odbiorcza",
+  "no_messages": "Brak wiadomości przychodzących",
+  "verification_code": "Wykryto kod weryfikacyjny",
+  "unknown_sender": "Nieznany nadawca",
+  "no_subject": "Brak tematu",
+  "email_taken_error": "Przepraszamy, ta nazwa jest już zajęta",
+  "inbox_full_title": "Skrzynka pełna (2/2)",
+  "inbox_full_desc": "Osiągnięto limit. Stare wiadomości zostaną usunięte po nadejściu nowych."
 }
