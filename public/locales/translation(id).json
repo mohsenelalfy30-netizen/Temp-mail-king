@@ -37,5 +37,12 @@
   "faq_title": "Pertanyaan yang Sering Diajukan",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Kami tidak menyimpan pesan secara permanen; mereka secara otomatis dihapus setelah beberapa saat.</li>\n      <li>Kami tidak meminta data pribadi atau identitas apa pun untuk membuat email.</li>\n      <li>Layanan ini dirancang untuk melindungi privasi Anda dari spam.</li>\n      <li>Dengan menggunakan situs ini, Anda menyetujui penghapusan data secara otomatis setiap 24 jam.</li>\n    </ul>\n  ",
   "refresh_button": "Menyegarkan",
-  "inbox_title": "Kotak masuk"
+  "inbox_title": "Kotak masuk",
+  "no_messages": "Belum ada pesan masuk",
+  "verification_code": "Kode verifikasi ditemukan",
+  "unknown_sender": "Pengirim tidak dikenal",
+  "no_subject": "Tanpa subjek",
+  "email_taken_error": "Maaf, nama ini sudah digunakan",
+  "inbox_full_title": "Kotak masuk penuh (2/2)",
+  "inbox_full_desc": "Batas tercapai. Pesan lama akan dihapus otomatis saat pesan baru tiba."
 }
