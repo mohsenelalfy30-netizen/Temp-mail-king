@@ -37,5 +37,12 @@
   "faq_title": "Awọn ibeere Nigbagbogbo",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>A ko tọju awọn ifiranṣẹ patapata; wọn ti paarẹ laifọwọyi lẹhin igba diẹ.</li>\n      <li>A ko beere fun eyikeyi ti ara ẹni data tabi idamo lati ṣẹda imeeli.</li>\n      <li>Iṣẹ naa jẹ apẹrẹ lati daabobo aṣiri rẹ lọwọ àwúrúju.</li>\n      <li>Nipa lilo aaye naa, o gba si piparẹ data aifọwọyi ni gbogbo wakati 24.</li>\n    </ul>\n  ",
   "refresh_button": "Tuntun",
-  "inbox_title": "Apo-iwọle"
+  "inbox_title": "Apo-iwọle",
+  "no_messages": "Kosi ifiranṣẹ kankan sibẹsibẹ",
+  "verification_code": "A wa koodu ijẹrisi",
+  "unknown_sender": "Olufiranṣẹ ti a ko mọ",
+  "no_subject": "Kosi akọle",
+  "email_taken_error": "Ma binu, orukọ yii ti wa ni lilo",
+  "inbox_full_title": "Apo-iwọle ti kun (2/2)",
+  "inbox_full_desc": "O ti gba iye ifiranṣẹ to pọ julọ. Fun aabo, jọwọ ṣẹda imeeli tuntun lati gba awọn ifiranṣẹ diẹ sii."
 }
