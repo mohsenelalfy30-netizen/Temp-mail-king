@@ -37,5 +37,12 @@
   "faq_title": "Ajụjụ a na-ajụkarị",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Anyị anaghị echekwa ozi kpamkpam; a na-ehichapụ ha na-akpaghị aka ka obere oge gasịrị.</li>\n      <li>Anyị anaghị arịọ maka data nkeonwe ma ọ bụ njirimara iji mepụta email.</li>\n      <li>Emebere ọrụ ahụ iji kpuchido nzuzo gị na spam.</li>\n      <li>Site na iji saịtị ahụ, ị ​​kwenyere na ihichapụ data na-akpaghị aka kwa awa 24 ọ bụla.</li>\n    </ul>\n  ",
   "refresh_button": "Weghachite ume",
-  "inbox_title": "Igbe mbata"
+  "inbox_title": "Igbe mbata",
+  "no_messages": "Enwebeghị ozi ọ bụla",
+  "verification_code": "Achọpụtara koodu nkwenye",
+  "unknown_sender": "Onye zitere ya amaghị",
+  "no_subject": "Enweghị isiokwu",
+  "email_taken_error": "Ndo, ejirila aha a",
+  "inbox_full_title": "Igbe mbata ejuola (2/2)",
+  "inbox_full_desc": "Ị nwetala ozi kachasị elu. Maka nchekwa, biko mepụta email ọhụrụ iji nweta ozi ndị ọzọ."
 }
