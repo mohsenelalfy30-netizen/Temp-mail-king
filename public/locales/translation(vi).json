@@ -44,5 +44,6 @@
   "no_subject": "Không có tiêu đề",
   "email_taken_error": "Xin lỗi, tên này đã được sử dụng",
   "inbox_full_title": "Hộp thư đầy (2/2)",
-  "inbox_full_desc": "Đã đạt giới hạn. Các tin nhắn cũ sẽ tự động bị xóa khi có tin nhắn mới."
+  "inbox_full_desc": "Đã đạt giới hạn. Các tin nhắn cũ sẽ tự động bị xóa khi có tin nhắn mới.",
+  "expiry_warning": "Cảnh báo: Email này sẽ tự động bị hủy sau 20 phút!"
 }
