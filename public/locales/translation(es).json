@@ -44,5 +44,6 @@
   "no_subject": "Sin asunto",
   "email_taken_error": "Lo sentimos, este nombre ya está en uso, prueba con otro",
   "inbox_full_title": "Bandeja de entrada llena (2/2)",
-  "inbox_full_desc": "Límite alcanzado. Los mensajes antiguos se borrarán al recibir nuevos."
+  "inbox_full_desc": "Límite alcanzado. Los mensajes antiguos se borrarán al recibir nuevos.",
+  "expiry_warning": "¡Advertencia: este correo se destruirá automáticamente después de 20 minutos!"
 }
