@@ -37,5 +37,12 @@
   "faq_title": "Tambayoyin da ake yawan yi",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Ba ma adana saƙonnin dindindin; Ana share su ta atomatik bayan ɗan gajeren lokaci.</li>\n      <li>Ba ma neman kowane bayanan sirri ko gabobin don ƙirƙirar imel.</li>\n      <li>An tsara sabis ɗin don kare sirrin ku daga spam.</li>\n      <li>Ta amfani da rukunin yanar gizon, kun yarda da goge bayanan atomatik kowane awa 24.</li>\n    </ul>\n  ",
   "refresh_button": "Sake sabuntawa",
-  "inbox_title": "Akwati mai shiga"
+  "inbox_title": "Akwati mai shiga",
+  "no_messages": "Babu saƙon da ya shigo tukunna",
+  "verification_code": "An gano lambar tabbatarwa",
+  "unknown_sender": "Wanda ya aiko ba a sani ba",
+  "no_subject": "Babu jigo",
+  "email_taken_error": "Yi haƙuri, an riga an yi amfani da wannan sunan",
+  "inbox_full_title": "Akwatin saƙon ya cika (2/2)",
+  "inbox_full_desc": "Kun karɓi matsakaicin adadin saƙonni. Don tsaro, da fatan za a ƙirƙiri sabon imel don karɓar ƙarin saƙonni."
 }
