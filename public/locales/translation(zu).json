@@ -37,5 +37,12 @@
   "faq_title": "imibuzo ejwayelekile ukubuzwa",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Asiyigcini imilayezo unomphela; zisuswa ngokuzenzakalelayo ngemva kwesikhathi esifushane.</li>\n      <li>Asiceli idatha yomuntu siqu noma ubunikazi ukuze sidale i-imeyili.</li>\n      <li>Isevisi yakhelwe ukuvikela ubumfihlo bakho kugaxekile.</li>\n      <li>Ngokusebenzisa isayithi, uyavumelana nokususwa okuzenzakalelayo kwedatha njalo emahoreni angama-24.</li>\n    </ul>\n  ",
   "refresh_button": "Vuselela",
-  "inbox_title": "Ibhokisi lokungenayo"
+  "inbox_title": "Ibhokisi lokungenayo",
+  "no_messages": "Ayikho imilayezo engenayo okwamanje",
+  "verification_code": "Ikhodi yokuqinisekisa itholiwe",
+  "unknown_sender": "Umthumeli ongaziwa",
+  "no_subject": "Asikho isihloko",
+  "email_taken_error": "Uxolo, leli gama selivele lisetshenzisiwe",
+  "inbox_full_title": "Ibhokisi lokungenayo ligcwele (2/2)",
+  "inbox_full_desc": "Uthole inani eliphakeme kakhulu lemilayezo. Ukuze uvikeleke, sicela udale i-imeyili entsha ukuze uthole imilayezo eyengeziwe."
 }
