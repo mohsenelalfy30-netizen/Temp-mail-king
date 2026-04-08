@@ -44,5 +44,6 @@
   "no_subject": "Hakuna mada",
   "email_taken_error": "Samahani, jina hili tayari linatumika",
   "inbox_full_title": "Sanduku la barua limejaa (2/2)",
-  "inbox_full_desc": "Kikomo kimefikiwa. Ujumbe wa zamani utafutwa kiotomatiki."
+  "inbox_full_desc": "Kikomo kimefikiwa. Ujumbe wa zamani utafutwa kiotomatiki.",
+  "expiry_warning": "Onyo: Barua pepe hii itaharibiwa kiotomatiki baada ya dakika 20!"
 }
