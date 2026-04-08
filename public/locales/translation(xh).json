@@ -37,5 +37,12 @@
   "faq_title": "Imibuzo ebuzwa qho",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Asiyigcini ngokusisigxina imiyalezo; zicinywa ngokuzenzekelayo emva kwexesha elifutshane.</li>\n      <li>Asiceli nayiphi na idatha yobuqu okanye izazisi ukwenza i-imeyile.</li>\n      <li>Le nkonzo yenzelwe ukukhusela imfihlo yakho kwi-spam.</li>\n      <li>Ngokusebenzisa isayithi, uyavuma ukucinywa ngokuzenzekelayo kwedatha rhoqo kwiiyure ezingama-24.</li>\n    </ul>\n  ",
   "refresh_button": "Hlaziya",
-  "inbox_title": "Ibhokisi yangaphakathi"
+  "inbox_title": "Ibhokisi yangaphakathi",
+  "no_messages": "Akukabikho mlayezo ungenayo",
+  "verification_code": "Ikhodi yokuqinisekisa ifunyenwe",
+  "unknown_sender": "Umthumeli ongaziwayo",
+  "no_subject": "Akukho sihloko",
+  "email_taken_error": "Uxolo, eli gama sele lisetyenzisiwe",
+  "inbox_full_title": "Ibhokisi engenayo izele (2/2)",
+  "inbox_full_desc": "Ufumene owona mlinganiselo uphezulu wemiyalezo. Ngokunqabiseka, nceda wenze i-imeyile entsha ukuze ufumane eminye imiyalezo."
 }
