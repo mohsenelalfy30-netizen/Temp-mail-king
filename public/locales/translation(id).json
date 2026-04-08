@@ -44,5 +44,6 @@
   "no_subject": "Tanpa subjek",
   "email_taken_error": "Maaf, nama ini sudah digunakan",
   "inbox_full_title": "Kotak masuk penuh (2/2)",
-  "inbox_full_desc": "Batas tercapai. Pesan lama akan dihapus otomatis saat pesan baru tiba."
+  "inbox_full_desc": "Batas tercapai. Pesan lama akan dihapus otomatis saat pesan baru tiba.",
+  "expiry_warning": "Peringatan: Email ini akan hancur secara otomatis setelah 20 menit!"
 }
