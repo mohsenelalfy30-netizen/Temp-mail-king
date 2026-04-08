@@ -44,5 +44,6 @@
   "no_subject": "Walang paksa",
   "email_taken_error": "Paumanhin, ang pangalang ito ay gamit na",
   "inbox_full_title": "Puno na ang inbox (2/2)",
-  "inbox_full_desc": "Naabot na ang limitasyon. Awtomatikong mabubura ang mga lumang mensahe."
+  "inbox_full_desc": "Naabot na ang limitasyon. Awtomatikong mabubura ang mga lumang mensahe.",
+  "expiry_warning": "Babala: Awtomatikong masisira ang email na ito pagkatapos ng 20 minuto!"
 }
