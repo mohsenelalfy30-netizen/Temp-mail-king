@@ -37,5 +37,12 @@
   "faq_title": "Soalan Lazim",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Kami tidak menyimpan mesej secara kekal; ia dipadamkan secara automatik selepas tempoh yang singkat.</li>\n      <li>Kami tidak meminta sebarang data atau identiti peribadi untuk membuat e-mel.</li>\n      <li>Perkhidmatan ini direka untuk melindungi privasi anda daripada spam.</li>\n      <li>Dengan menggunakan tapak, anda bersetuju dengan pemadaman automatik data setiap 24 jam.</li>\n    </ul>\n  ",
   "refresh_button": "Segarkan semula",
-  "inbox_title": "Peti masuk"
+  "inbox_title": "Peti masuk",
+  "no_messages": "Belum ada mesej masuk",
+  "verification_code": "Kod pengesahan dikesan",
+  "unknown_sender": "Pengirim tidak dikenali",
+  "no_subject": "Tiada subjek",
+  "email_taken_error": "Maaf, nama ini telah digunakan",
+  "inbox_full_title": "Peti masuk penuh (2/2)",
+  "inbox_full_desc": "Had dicapai. Mesej lama akan dipadamkan secara automatik apabila mesej baru sampai."
 }
