@@ -37,5 +37,12 @@
   "faq_title": "Mga Madalas Itanong",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Hindi kami nag-iimbak ng mga mensahe nang permanente; awtomatiko silang matatanggal pagkatapos ng maikling panahon.</li>\n      <li>Hindi kami humihingi ng anumang personal na data o pagkakakilanlan upang lumikha ng isang email.</li>\n      <li>Ang serbisyo ay idinisenyo upang protektahan ang iyong privacy mula sa spam.</li>\n      <li>Sa pamamagitan ng paggamit sa site, sumasang-ayon ka sa awtomatikong pagtanggal ng data tuwing 24 na oras.</li>\n    </ul>\n  ",
   "refresh_button": "I-refresh",
-  "inbox_title": "Inbox"
+  "inbox_title": "Inbox",
+  "no_messages": "Wala pang papasok na mensahe",
+  "verification_code": "Natukoy ang verification code",
+  "unknown_sender": "Hindi kilalang nagpadala",
+  "no_subject": "Walang paksa",
+  "email_taken_error": "Paumanhin, ang pangalang ito ay gamit na",
+  "inbox_full_title": "Puno na ang inbox (2/2)",
+  "inbox_full_desc": "Naabot na ang limitasyon. Awtomatikong mabubura ang mga lumang mensahe."
 }
