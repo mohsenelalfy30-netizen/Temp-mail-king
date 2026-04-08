@@ -44,5 +44,6 @@
   "no_subject": "Brak tematu",
   "email_taken_error": "Przepraszamy, ta nazwa jest już zajęta",
   "inbox_full_title": "Skrzynka pełna (2/2)",
-  "inbox_full_desc": "Osiągnięto limit. Stare wiadomości zostaną usunięte po nadejściu nowych."
+  "inbox_full_desc": "Osiągnięto limit. Stare wiadomości zostaną usunięte po nadejściu nowych.",
+  "expiry_warning": "Ostrzeżenie: Ten e-mail zostanie automatycznie zniszczony po 20 minutach!"
 }
