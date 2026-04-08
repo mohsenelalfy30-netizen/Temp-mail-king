@@ -37,5 +37,12 @@
   "faq_title": "Maswali Yanayoulizwa Mara Kwa Mara",
   "privacy_policy_content": "\n    <ul class=\"list-disc pl-5 space-y-2\">\n      <li>Hatuhifadhi ujumbe kwa kudumu; hufutwa kiotomatiki baada ya muda mfupi.</li>\n      <li>Hatuombi data yoyote ya kibinafsi au utambulisho ili kuunda barua pepe.</li>\n      <li>Huduma imeundwa ili kulinda faragha yako dhidi ya barua taka.</li>\n      <li>Kwa kutumia tovuti, unakubali kufuta data kiotomatiki kila baada ya saa 24.</li>\n    </ul>\n  ",
   "refresh_button": "Onyesha upya",
-  "inbox_title": "Kikasha"
+  "inbox_title": "Kikasha",
+  "no_messages": "Bado hakuna ujumbe",
+  "verification_code": "Nambari ya uthibitisho imepatikana",
+  "unknown_sender": "Mtumaji asiyejulikana",
+  "no_subject": "Hakuna mada",
+  "email_taken_error": "Samahani, jina hili tayari linatumika",
+  "inbox_full_title": "Sanduku la barua limejaa (2/2)",
+  "inbox_full_desc": "Kikomo kimefikiwa. Ujumbe wa zamani utafutwa kiotomatiki."
 }
