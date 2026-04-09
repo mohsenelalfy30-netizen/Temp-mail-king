@@ -550,7 +550,7 @@ async function showEmail(email, isReRender = false) {
         
         inboxPollingInterval = setInterval(() => {
             fetchAndRenderMessages(realEmail);
-        }, 10000);
+        }, 2000);
     } else {
         await fetchAndRenderMessages(realEmail);
     }
