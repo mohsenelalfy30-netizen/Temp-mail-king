@@ -172,7 +172,7 @@ function cleanupOldAccounts() {
 // NEW: Global Delete Function with Confirmation
 // ==========================================
 window.confirmDelete = function(targetEmail) {
-    const confirmMsg = i18n.getTranslation('confirm_delete') || 'هل أنت متأكد من حذف هذا الإيميل وجميع رسائله المرتبطة؟';
+    const confirmMsg = i18n.getTranslation('delete_confirm') || 'هل أنت متأكد من حذف هذا الإيميل وجميع رسائله المرتبطة؟';
     if (confirm(confirmMsg)) {
         window.deleteEmailRecord(targetEmail);
     }
