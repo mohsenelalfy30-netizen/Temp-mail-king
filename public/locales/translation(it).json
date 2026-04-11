@@ -44,6 +44,6 @@
   "no_subject": "Nessun oggetto",
   "email_taken_error": "Spiacenti, questo nome è già occupato",
   "inbox_full_title": "Posta in arrivo piena (2/2)",
-  "inbox_full_desc": "Limite raggiunto. I messaggi più vecchi verranno eliminati automaticamente.",
+  "inbox_full_desc": "Limite raggiunto. Questa email non riceverà più messaggi. Per sicurezza, crea un nuovo indirizzo email per ricevere i tuoi prossimi messaggi.",
   "expiry_warning": "Avviso: questa email verrà distrutta automaticamente dopo 20 minuti!"
 }
