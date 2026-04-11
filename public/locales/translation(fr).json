@@ -44,6 +44,6 @@
   "no_subject": "Sans objet",
   "email_taken_error": "Désolé, ce nom est déjà utilisé, essayez-en un autre",
   "inbox_full_title": "Boîte de réception pleine (2/2)",
-  "inbox_full_desc": "Limite atteinte. Les anciens messages seront supprimés à l'arrivée de nouveaux.",
+  "inbox_full_desc": "Limite atteinte. Cet e-mail ne recevra plus de messages. Pour plus de sécurité, veuillez créer une nouvelle adresse e-mail pour recevoir vos prochains messages.",
   "expiry_warning": "Attention : cet e-mail sera automatiquement détruit après 20 minutes !"
 }
