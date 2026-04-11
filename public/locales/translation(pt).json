@@ -44,6 +44,6 @@
   "no_subject": "Sem assunto",
   "email_taken_error": "Desculpe, este nome já está em uso",
   "inbox_full_title": "Caixa de entrada cheia (2/2)",
-  "inbox_full_desc": "Limite atingido. As mensagens antigas serão apagadas automaticamente ao chegar novas.",
+  "inbox_full_desc": "Limite atingido. Este e-mail não receberá mais mensagens. Por segurança, crie um novo endereço de e-mail para receber suas próximas mensagens.",
   "expiry_warning": "Aviso: este e-mail será destruído automaticamente após 20 minutos!"
 }
