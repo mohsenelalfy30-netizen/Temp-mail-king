@@ -44,6 +44,6 @@
   "no_subject": "No Subject",
   "email_taken_error": "Sorry, this name is currently taken, try another one",
   "inbox_full_title": "Inbox Full (2/2)",
-  "inbox_full_desc": "Limit reached. Older messages will be automatically deleted when new ones arrive.",
+  "inbox_full_desc": "Limit reached. This email will not receive more messages. For security, please create a brand new email address to receive your upcoming messages.",
   "expiry_warning": "Warning: This email will be automatically destroyed after 20 minutes!"
 }
