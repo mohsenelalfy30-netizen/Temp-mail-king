@@ -44,6 +44,6 @@
   "no_subject": "Geen onderwerp",
   "email_taken_error": "Sorry, deze naam is al in gebruik",
   "inbox_full_title": "Inbox vol (2/2)",
-  "inbox_full_desc": "Limiet bereikt. Oude berichten worden automatisch verwijderd bij nieuwe berichten.",
+  "inbox_full_desc": "Limiet bereikt. Deze e-mail ontvangt geen berichten meer. Maak voor de veiligheid een nieuw e-mailadres aan om uw volgende berichten te ontvangen.",
   "expiry_warning": "Waarschuwing: deze e-mail wordt na 20 minuten automatisch vernietigd!"
 }
