@@ -44,6 +44,6 @@
   "no_subject": "Tiada subjek",
   "email_taken_error": "Maaf, nama ini telah digunakan",
   "inbox_full_title": "Peti masuk penuh (2/2)",
-  "inbox_full_desc": "Had dicapai. Mesej lama akan dipadamkan secara automatik apabila mesej baru sampai.",
+  "inbox_full_desc": "Had dicapai. E-mel ini tidak akan menerima mesej lagi. Untuk keselamatan, sila buat alamat e-mel baharu untuk menerima mesej anda yang seterusnya.",
   "expiry_warning": "Amaran: E-mel ini akan dimusnahkan secara automatik selepas 20 minit!"
 }
