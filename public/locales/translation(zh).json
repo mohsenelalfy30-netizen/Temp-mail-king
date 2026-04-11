@@ -44,6 +44,6 @@
   "no_subject": "无主题",
   "email_taken_error": "抱歉，该名称已被占用",
   "inbox_full_title": "收件箱已满 (2/2)",
-  "inbox_full_desc": "已达到限制。新邮件到达时将自动删除旧邮件。",
+  "inbox_full_desc": "已达到限制。此邮箱将不再接收邮件。为了安全，请创建一个全新的邮箱地址以接收后续邮件。",
   "expiry_warning": "警告：此电子邮件将在 20 分钟后自动销毁！"
 }
