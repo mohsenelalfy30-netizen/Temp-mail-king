@@ -12,11 +12,11 @@ export const DOMAINS = [
     { pretty: 'gmail-pro.com', real: 'king-tmail.tech' },
     
     // Edu-style
-    { pretty: 'student-mail.edu.pl', real: 'edu-real.pl' },
-    { pretty: 'campus-inbox.edu.es', real: 'campus-real.es' },
-    { pretty: 'uni-mail.edu.it', real: 'uni-real.it' },
-    { pretty: 'college-box.edu.co', real: 'college-real.co' },
-    { pretty: 'alumni-mail.edu.br', real: 'alumni-real.br' },
+    { pretty: 'student-mail.edu.pl', real: 'x@u.king-tmail.tech' },
+    { pretty: 'campus-inbox.edu.es', real: 'x@u.king-tmail.tech' },
+    { pretty: 'uni-mail.edu.it', real: 'x@u.king-tmail.tech' },
+    { pretty: 'college-box.edu.co', real: 'x@u.king-tmail.tech' },
+    { pretty: 'alumni-mail.edu.br', real: 'x@u.king-tmail.tech' },
     { pretty: 'academy-inbox.edu.mx', real: 'academy-real.mx' },
     { pretty: 'scholar-mail.edu.ar', real: 'scholar-real.ar' },
     { pretty: 'faculty-box.edu.pe', real: 'faculty-real.pe' },
