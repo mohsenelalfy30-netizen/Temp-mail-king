@@ -44,6 +44,6 @@
   "no_subject": "Kein Betreff",
   "email_taken_error": "Entschuldigung, dieser Name ist bereits vergeben",
   "inbox_full_title": "Posteingang voll (2/2)",
-  "inbox_full_desc": "Limit erreicht. Ältere Nachrichten werden automatisch gelöscht.",
+  "inbox_full_desc": "Limit erreicht. Diese E-Mail wird keine weiteren Nachrichten empfangen. Erstellen Sie aus Sicherheitsgründen eine neue E-Mail-Adresse, um Ihre nächsten Nachrichten zu erhalten.",
   "expiry_warning": "Warnung: Diese E-Mail wird nach 20 Minuten automatisch zerstört!"
 }
