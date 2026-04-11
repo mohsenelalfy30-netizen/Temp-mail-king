@@ -44,6 +44,6 @@
   "no_subject": "Konu yok",
   "email_taken_error": "Üzgünüz, bu isim şu anda kullanımda",
   "inbox_full_title": "Gelen kutusu dolu (2/2)",
-  "inbox_full_desc": "Sınıra ulaşıldı. Yeni mesajlar geldiğinde eski mesajlar otomatik olarak silinecektir.",
+  "inbox_full_desc": "Sınıra ulaşıldı. Bu e-posta artık mesaj almayacaktır. Güvenlik için lütfen yeni mesajlarınızı almak üzere tamamen yeni bir e-posta adresi oluşturun.",
   "expiry_warning": "Uyarı: Bu e-posta 20 dakika sonra otomatik olarak imha edilecektir!"
 }
