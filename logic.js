@@ -374,19 +374,6 @@ if (themeToggle) {
     });
 }
 
-// --- Ad & Tab Logic ---
-if (closeAdBtn) {
-    closeAdBtn.addEventListener('click', () => {
-        if (pushAd) pushAd.style.display = 'none';
-        if (mainContent) mainContent.style.paddingBottom = '60px';
-        const bottomAd = document.querySelector('.sticky.bottom-\\[110px\\]');
-        if (bottomAd) {
-            bottomAd.classList.remove('bottom-[110px]');
-            bottomAd.classList.add('bottom-[60px]');
-        }
-    });
-}
-
 function switchTab(tab) {
     if (tab === 'home') {
         if (homeTab) homeTab.style.display = 'flex';
