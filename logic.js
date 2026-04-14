@@ -316,7 +316,6 @@ function showMainMenu(immediate = false) {
         }, delay);
     }
 }
-
 function showSubView(view, titleKey) {
     if(backBtn) backBtn.classList.remove('hidden');
     if(settingsTitle) {
@@ -340,10 +339,9 @@ function showSubView(view, titleKey) {
             
             // --- مصحح التمرير للتابلت ---
             if (view === langView) {
-                setTimeout(() => {
-                   view.style.overflowY = 'auto';
-                   view.scrollTop = 0;
-                   renderLangGrid(langSearch ? langSearch.value : '');
+                view.style.overflowY = 'auto';
+                view.scrollTop = 0;
+                renderLangGrid(langSearch ? langSearch.value : '');
             }
             
             setTimeout(() => {
@@ -353,6 +351,7 @@ function showSubView(view, titleKey) {
         }, delay);
     }
 }
+
 
 if (settingsBtn) settingsBtn.addEventListener('click', openModal);
 if (closeSettingsModal) closeSettingsModal.addEventListener('click', closeModal);
