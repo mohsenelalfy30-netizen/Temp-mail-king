@@ -341,10 +341,9 @@ function showSubView(view, titleKey) {
             // --- مصحح التمرير للتابلت ---
             if (view === langView) {
                 setTimeout(() => {
-              // أضف هذه السطور بدلاً منها:
-                   view.style.overflowY = 'auto'; // التأكد من تفعيل التمرير
-                   view.scrollTop = 0; // البدء من أعلى القائمة
-                   renderLangGrid(langSearch ? langSearch.value : ''); // إعادة بناء القائمة فور الظهور
+                   view.style.overflowY = 'auto';
+                   view.scrollTop = 0;
+                   renderLangGrid(langSearch ? langSearch.value : '');
             }
             
             setTimeout(() => {
