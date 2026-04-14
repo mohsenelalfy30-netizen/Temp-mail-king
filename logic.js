@@ -336,16 +336,15 @@ function showSubView(view, titleKey) {
         const delay = hasVisibleMainMenu ? 300 : 0;
         setTimeout(() => {
             view.classList.remove('hidden');
+            view.classList.add('flex'); 
             
             // --- مصحح التمرير للتابلت ---
             if (view === langView) {
                 setTimeout(() => {
-                    // نجبر الحاوية على إعادة حساب أبعادها بعد ظهورها
-                    langGrid.style.display = 'none';
-                    langGrid.offsetHeight; // Force reflow
-                    langGrid.style.display = 'grid';
-                    renderLangGrid(langSearch ? langSearch.value : '');
-                }, 50);
+              // أضف هذه السطور بدلاً منها:
+                   view.style.overflowY = 'auto'; // التأكد من تفعيل التمرير
+                   view.scrollTop = 0; // البدء من أعلى القائمة
+                   renderLangGrid(langSearch ? langSearch.value : ''); // إعادة بناء القائمة فور الظهور
             }
             
             setTimeout(() => {
