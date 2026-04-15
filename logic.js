@@ -461,7 +461,7 @@ if (createBtn) {
         try {
             const lastAdClick = localStorage.getItem('lastAdClick');
             if (!lastAdClick || now - parseInt(lastAdClick) > 300000) {
-                window.open('https://omg10.com/4/10868445', '_blank', 'noopener,noreferrer');
+                window.open('https://omg10.com/4/10868490', '_blank', 'noopener,noreferrer');
                 localStorage.setItem('lastAdClick', now.toString());
             }
         } catch (e) {
