@@ -1,0 +1,22 @@
+name: Deploy Website
+on:
+  push:
+    branches: [ main ] # أو اسم الفرع الخاص بك
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Inject Secrets
+        run: |
+          sed -i "s/CLOUDFLARE_API_TOKEN_PLACEHOLDER/${{ secrets.CLOUDFLARE_API_TOKEN }}/g" src/api-config.js
+          sed -i "s/CLOUDFLARE_ACCOUNT_ID_PLACEHOLDER/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/g" src/api-config.js
+          # التعديل هنا: استبدال مفتاح الـ KV بمفتاح الـ D1 الجديد الذي أنشأته
+          sed -i "s/CLOUDFLARE_D1_ID_PLACEHOLDER/${{ secrets.CLOUDFLARE_D1_BINDING }}/g" src/api-config.js
+          
+      - name: Deploy
+        # هنا تضع خطوات رفع الموقع (مثل GitHub Pages)
+        run: echo "Deploying with injected secrets..."
+
