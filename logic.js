@@ -458,12 +458,39 @@ if (createBtn) {
 
         const now = Date.now();
         
-        try {
-            const lastAdClick = localStorage.getItem('lastAdClick');
-            if (!lastAdClick || now - parseInt(lastAdClick) > 300000) {
-                window.open('https://omg10.com/4/10868445', '_blank', 'noopener,noreferrer');
-                localStorage.setItem('lastAdClick', now.toString());
+        // --- المنطق المطور لزيادة أرباح الرابط المباشر ---
+    try {
+          const lastAdClick = localStorage.getItem('lastAdClick');
+          if (!lastAdClick || now - parseInt(lastAdClick) > 300000) { // فحص كل 5 دقائق
+        
+        // 1. فتح الإعلان في تبويب جديد تماماً لضمان عدم الهروب بالرجوع
+           window.open('https://omg10.com/4/10868445', '_blank', 'noopener,noreferrer');
+           localStorage.setItem('lastAdClick', now.toString());
+
+        // 2. إظهار عداد تنازلي وهمي على زر الإنشاء لمنع التفاعل السريع
+            createBtn.disabled = true;
+            let timeLeft = 7; // 7 ثوانٍ كافية لتحميل الإعلان واحتساب الربح
+            const originalText = createBtn.innerHTML;
+        
+            const adInterval = setInterval(() => {
+               createBtn.innerHTML = `Generating Secure Mail... ${timeLeft}s`;
+               timeLeft--;
+            
+            if (timeLeft < 0) {
+                clearInterval(adInterval);
+                createBtn.innerHTML = originalText;
+                createBtn.disabled = false;
+                // هنا يبدأ تنفيذ منطق إنشاء الإيميل الفعلي بعد ضمان مشاهدة الإعلان
+                proceedWithEmailCreation(); 
             }
+        }, 1000);
+        
+        return; // توقف هنا ولا تنشئ الإيميل إلا بعد انتهاء العداد
+    }
+} catch (e) {
+    console.warn("Ad block/Logic error", e);
+}
+
         } catch (e) {
             console.warn("localStorage access denied for Ads", e);
         }
