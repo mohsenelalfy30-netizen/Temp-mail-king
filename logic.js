@@ -461,15 +461,13 @@ if (createBtn) {
         // --- المنطق المطور لزيادة أرباح الرابط المباشر ---
     try {
           const lastAdClick = localStorage.getItem('lastAdClick');
-          if (!lastAdClick || now - parseInt(lastAdClick) > 300000) { // فحص كل 5 دقائق
+          if (!lastAdClick || now - parseInt(lastAdClick) > 300000) {
         
-        // 1. فتح الإعلان في تبويب جديد تماماً لضمان عدم الهروب بالرجوع
            window.open('https://omg10.com/4/10868445', '_blank', 'noopener,noreferrer');
            localStorage.setItem('lastAdClick', now.toString());
 
-        // 2. إظهار عداد تنازلي وهمي على زر الإنشاء لمنع التفاعل السريع
             createBtn.disabled = true;
-            let timeLeft = 7; // 7 ثوانٍ كافية لتحميل الإعلان واحتساب الربح
+            let timeLeft = 7;
             const originalText = createBtn.innerHTML;
         
             const adInterval = setInterval(() => {
@@ -480,12 +478,12 @@ if (createBtn) {
                 clearInterval(adInterval);
                 createBtn.innerHTML = originalText;
                 createBtn.disabled = false;
-                // هنا يبدأ تنفيذ منطق إنشاء الإيميل الفعلي بعد ضمان مشاهدة الإعلان
+            
                 proceedWithEmailCreation(); 
             }
         }, 1000);
         
-        return; // توقف هنا ولا تنشئ الإيميل إلا بعد انتهاء العداد
+        return;
     }
 } catch (e) {
     console.warn("Ad block/Logic error", e);
