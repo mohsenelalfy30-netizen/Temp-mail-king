@@ -457,38 +457,34 @@ if (createBtn) {
         if (!prefix) return;
 
         const now = Date.now();
-        
-        // --- المنطق المطور لزيادة أرباح الرابط المباشر ---
-    try {
-    const lastAdClick = localStorage.getItem('lastAdClick');
-    if (!lastAdClick || now - parseInt(lastAdClick) > 300000) {
-        window.open('https://omg10.com/4/10868445', '_blank', 'noopener,noreferrer');
-        localStorage.setItem('lastAdClick', now.toString());
-
-        createBtn.disabled = true;
-        let timeLeft = 7; 
-        const originalText = createBtn.innerHTML;
-        
-        const adInterval = setInterval(() => {
-            createBtn.innerHTML = `Generating... ${timeLeft}s`;
-            if (timeLeft <= 0) {
-                clearInterval(adInterval);
-                createBtn.innerHTML = originalText;
-                createBtn.disabled = false;
-                createBtn.click(); 
-            }
-            timeLeft--;
-        }, 1000);
-        return;
-    }
-} catch (e) {
-    console.warn("Ad logic error", e);
-}
-
     
-        } catch (e) {
-            console.warn("localStorage access denied for Ads", e);
+        
+        try {
+            const lastAdClick = localStorage.getItem('lastAdClick');
+            if (!lastAdClick || (now - parseInt(lastAdClick) > 300000)) {
+                window.open('https://omg10.com/4/10868445', '_blank', 'noopener,noreferrer');
+                localStorage.setItem('lastAdClick', now.toString());
+
+                createBtn.disabled = true;
+                let timeLeft = 7;
+                const originalText = createBtn.innerHTML;
+
+                const adInterval = setInterval(() => {
+                    createBtn.innerHTML = `Generating... ${timeLeft}s`;
+                    if (timeLeft <= 0) {
+                        clearInterval(adInterval);
+                        createBtn.innerHTML = originalText;
+                        createBtn.disabled = false;
+                        createBtn.click();
+                    }
+                    timeLeft--;
+                }, 1000);
+                return;
+            }
+        } catch (adErr) {
+            console.warn("Ad logic error", adErr);
         }
+
 
         const prettyDomain = domainSelect.value;
         const domainEntry = DOMAINS.find(d => d.pretty === prettyDomain);
