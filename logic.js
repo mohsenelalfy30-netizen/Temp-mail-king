@@ -537,7 +537,7 @@ if (createBtn) {
             createBtn.disabled = false;
             createBtn.style.opacity = '1';
         } catch (err) {
-            console.error("Error checking KV availability:", err);
+            console.error("Error checking D1 availability:", err);
             createBtn.disabled = false;
             createBtn.style.opacity = '1';
         }
