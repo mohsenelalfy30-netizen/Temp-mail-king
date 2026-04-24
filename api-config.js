@@ -3,7 +3,7 @@
  * Compatible with Worker version using Path: /messages & Param: email
  */
 
-const WORKER_URL = ''; 
+const WORKER_URL = 'https://api.king-tmail.tech'; 
 
 export async function fetchInbox(emailAddress) {
     if (!emailAddress) {
