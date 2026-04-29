@@ -12,16 +12,16 @@ export const DOMAINS = [
     { pretty: 'gmail-pro.com', real: 'king-tmail.tech' },
     
     // Edu-style
-    { pretty: 'student-mail.edu.pl', real: 'x@u.king-tmail.tech' },
-    { pretty: 'campus-inbox.edu.es', real: 'x@u.king-tmail.tech' },
-    { pretty: 'uni-mail.edu.it', real: 'x@u.king-tmail.tech' },
-    { pretty: 'college-box.edu.co', real: 'x@u.king-tmail.tech' },
-    { pretty: 'alumni-mail.edu.br', real: 'x@u.king-tmail.tech' },
-    { pretty: 'academy-inbox.edu.mx', real: 'x@u.king-tmail.tech' },
-    { pretty: 'scholar-mail.edu.ar', real: 'x@u.king-tmail.tech' },
-    { pretty: 'faculty-box.edu.pe', real: 'x@u.king-tmail.tech' },
-    { pretty: 'student-inbox.edu.vn', real: 'x@v.king-tmail.tech' },
-    { pretty: 'campus-mail.edu.ph', real: 'x@v.king-tmail.tech' },
+    { pretty: 'expert-inbox.tech', real: 'x@u.king-tmail.tech' },
+    { pretty: 'private-cloud.host', real: 'x@u.king-tmail.tech' },
+    { pretty: 'elite-entry.net', real: 'x@u.king-tmail.tech' },
+    { pretty: 'alpha-secure.io', real: 'x@u.king-tmail.tech' },
+    { pretty: 'legacy-mail.org', real: 'x@u.king-tmail.tech' },
+    { pretty: 'prime-vault.site', real: 'x@u.king-tmail.tech' },
+    { pretty: 'smart-shield.me', real: 'x@u.king-tmail.tech' },
+    { pretty: 'pro-inbox.cloud', real: 'x@u.king-tmail.tech' },
+    { pretty: 'verified-gate.net', real: 'x@v.king-tmail.tech' },
+    { pretty: 'stealth-mail.online', real: 'x@v.king-tmail.tech' },
     
     // Outlook-style
     { pretty: 'outlook-inbox.me', real: 'x@v.king-tmail.tech' },
